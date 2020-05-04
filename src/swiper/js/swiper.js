@@ -9,23 +9,24 @@ var swiper = new Swiper('.swiper-container', {
     320: {
       slidesPerGroup: 1,
       slidesPerView: 1,
-      spaceBetween: 10
+      spaceBetween: 10,
     },
     450: {
       slidesPerGroup: 2,
       slidesPerView: 2,
-      spaceBetween: 20
+      spaceBetween: 20,
     },
     620: {
       slidesPerGroup: 3,
       slidesPerView: 3,
-      spaceBetween: 30
+      spaceBetween: 30,
     },
     800: {
       slidesPerGroup: 4,
       slidesPerView: 4,
-      spaceBetween: 40
-    }
-  }
+      spaceBetween: 40,
+    },
+  },
 });
+
 

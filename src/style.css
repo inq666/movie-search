@@ -1,6 +1,7 @@
 body {
   margin: 0 auto;
-
+background-image: url("image/background.png");
+background-size: cover;
   font-family: "Roboto", sans-serif;
 }
 
@@ -21,30 +22,32 @@ p {
   margin: 0 0 10px;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+ background: none;
+}
 
 .wrapper {
-  max-width: 1500px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
 /*swiper*/
 .swiper-container {
-  width: 90%;
-  height: 580px;
+  width: 100%;
+  height: 500px;
 }
 
 /*header*/
 .header {
-  padding-top: 5px;
-
   text-align: center;
 
-  background-color: rgb(25, 29, 29);
+  background-color: rgba(25, 29, 29, 0.904);
 }
 
 .header-title {
-  margin: 10px;
-
   color: #ffffff;
 
   cursor: pointer;
@@ -53,39 +56,62 @@ p {
 
 /*search*/
 .search-line {
-  margin: 20px 0;
+  margin-bottom: 20px;
 
   text-align: center;
 }
 
 .search {
+  margin-bottom: 80px;
   width: 50%;
   height: 50px;
   padding: 15px;
 
   font-size: 1.3em;
 
-  border: 3px solid black;
+  border: 2px solid black;
   border-radius: 15px;
   outline: none;
+}
+
+.button-search {
+  width: 30px;
+  height: 30px;
+  background-image: url("image/icon/search.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.button-keyboard {
+  width: 50px;
+  height: 35px;
+  background-image: url("image/icon/keyboard.png");
+  background-size: cover;
+  background-position: center;
 }
 
 /*slide with moviw*/
 
 .swiper-slide {
+  padding: 10px 0 20px;
+  border-radius: 10px;
   text-align: center;
+  background-color: rgb(224, 243, 247);
 }
 
 .movie-title {
   cursor: pointer;
+  color: black;
+  font-size: 1.1em;
 }
 
 .movie-image {
+  display: block;
   margin: 15px 0;
   width: 100%;
   height: 80%;
   background-size: cover;
-  background-image: url("VM-fdRzni8I.jpg");
+  background-image: url("https://m.media-amazon.com/images/M/MV5BMTE5NzIwMGUtYTE1MS00MDUxLTgyZjctOWVkZDAxM2M4ZWQ4XkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_SX300.jpg");
 }
 
 .movie-year {
@@ -128,15 +154,44 @@ p {
 
 
 .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   margin-top: 100px;
-  padding: 20px;
-
-  background-color: rgb(25, 29, 29);
+  padding: 5px;
+border-top-left-radius: 20px;
+border-top-right-radius: 20px;
+  background-color: rgba(41, 48, 48, 0.897);
 }
 
 .footer a {
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
   color: #ffffff;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
+.github-icon {
+  margin-right: 7px;
+  margin-bottom: 2px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("image/icon/github.png");
+  background-size: cover;
+}
+
+.rss-icon {
+  margin-right: 7px;
+  margin-bottom: 2px;
+  display: inline-block;
+  width: 90px;
+  height: 45px;
+  background-image: url("image/icon/rss.svg");
+  background-size: cover;
+}
+

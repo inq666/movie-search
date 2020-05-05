@@ -140,12 +140,9 @@
 }
 .swiper-button-prev,
 .swiper-button-next {
-  background-color: black;
  outline: none;
   position: absolute;
-  top: 50% !important;
-  height: 10% !important;
-  width: 50px !important;
+  top: 47%;
   z-index: 10;
   cursor: pointer;
   display: flex;
@@ -156,12 +153,14 @@
 .swiper-button-prev.swiper-button-disabled,
 .swiper-button-next.swiper-button-disabled {
   opacity: 0.35;
-  cursor: auto;
-  pointer-events: none;
+  cursor: pointer;
+  pointer-events: all;
 }
 .swiper-button-prev:after,
 .swiper-button-next:after {
-  font-family: swiper-icons;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
   font-size: var(--swiper-navigation-size);
   text-transform: none !important;
   letter-spacing: 0;
@@ -171,21 +170,23 @@
 }
 .swiper-button-prev,
 .swiper-container-rtl .swiper-button-next {
-  left: 0 !important;
+  left: -73px;
   right: auto;
 }
 .swiper-button-prev:after,
 .swiper-container-rtl .swiper-button-next:after {
-  content: 'prev';
+  background-image: url("../../image/icon/arrow-left.png");
+  content: '';
 }
 .swiper-button-next,
 .swiper-container-rtl .swiper-button-prev {
-  right: 0 !important;
+  right: -72px;
   left: auto;
 }
 .swiper-button-next:after,
 .swiper-container-rtl .swiper-button-prev:after {
-  content: 'next';
+  background-image: url("../../image/icon/arrow-right.png");
+  content: '';
 }
 .swiper-button-prev.swiper-button-white,
 .swiper-button-next.swiper-button-white {

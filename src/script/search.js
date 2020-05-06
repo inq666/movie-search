@@ -26,9 +26,11 @@ class Search {
       const json = await response.json();
       mainApp.currentMovie = json.text[0].trim();
     }
+
+    this.clear = true;
+    mainApp.page = 1;
     mainApp.getMovie();
     this.input.value = '';
-    mainApp.swiperWrapper.innerHTML = '';
   }
 }
 

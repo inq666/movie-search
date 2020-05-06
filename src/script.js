@@ -1,4 +1,5 @@
 import search from './script/search.js';
+import keyboard from './keyboard/keyboard.js';
 
 class MainApp {
   constructor() {
@@ -70,6 +71,18 @@ class MainApp {
   }
 
   async createItemMovie() {
+    if (this.data.Response === 'False') {
+      if (this.page === 1) {
+        document.querySelector('.search-result').innerHTML = `No results found for "<b>${this.currentMovie}</b>"`;
+        document.querySelector('.search-result-found').innerHTML = 'Found 0 results';
+      }
+      return;
+    }
+    if (search.clear) {
+      swiper.slideTo(1, 1);
+      this.swiperWrapper.innerHTML = '';
+      search.clear = false;
+    }
     const arrRate = [];
     for (let z = 0; z < this.data.Search.length; z += 1) {
       arrRate.push(`http://www.omdbapi.com/?i=${this.data.Search[z].imdbID}&apikey=fb708ae0`);
@@ -78,16 +91,18 @@ class MainApp {
     const requests = arrRate.map((url) => fetch(url));
     await Promise.all(requests)
       .then((responses) => Promise.all(responses.map((data) => data.json())))
-      .then((item) => item.forEach((rating) => jsonRate.push(rating.imdbRating)));
+      .then((item) => item.forEach((rating) => jsonRate.push(rating)));
     for (let i = 0; i < this.data.Search.length; i += 1) {
       const newSlide = this.sliderCopy.cloneNode(true);
       newSlide.querySelector('.movie-title').textContent = this.data.Search[i].Title;
       newSlide.querySelector('.movie-title').href = `https://www.imdb.com/title/${this.data.Search[i].imdbID}/videogallery/`;
       newSlide.querySelector('.movie-image').href = `https://www.imdb.com/title/${this.data.Search[i].imdbID}/videogallery/`;
-      newSlide.querySelector('.movie-year').textContent = this.data.Search[i].Year;
-      newSlide.querySelector('.movie-image').style.backgroundImage = `url(${this.data.Search[i].Poster})`;
-      newSlide.querySelector('.movie-rate').textContent = jsonRate[i];
+      newSlide.querySelector('.movie-year').textContent = `${this.data.Search[i].Year}, ${jsonRate[i].Country}`;
+      newSlide.querySelector('.movie-rate').innerHTML = `<b>${jsonRate[i].imdbRating}</b>`;
       this.swiperWrapper.append(newSlide);
+      if (this.data.Search[i].Poster !== 'N/A') {
+        newSlide.querySelector('.movie-image').style.backgroundImage = `url(${this.data.Search[i].Poster})`;
+      }
     }
     document.querySelector('.search-result').innerHTML = `Results for "<b>${this.currentMovie}</b>"`;
     document.querySelector('.search-result-found').innerHTML = `Found ${this.data.totalResults} results`;

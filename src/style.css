@@ -59,7 +59,7 @@ button {
 /*swiper*/
 .swiper-container {
   width: 100%;
-  height: 500px;
+  height: 600px;
 }
 
 /*header*/
@@ -103,15 +103,14 @@ button {
   position: relative;
 
   display: inline-block;
-  margin-bottom: 20px;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 .search {
   width: 1000px;
   height: 40px;
-  margin-bottom: 80px;
-  padding: 15px 80px 15px 40px;
+  margin-bottom: 50px;
+  padding: 15px 100px 15px 40px;
 
   font-size: 1.3em;
 
@@ -124,16 +123,16 @@ button {
 }
 
 .search:hover {
-  box-shadow: 0 0 5px 1px #00bbff;
+  box-shadow: 0 0 5px 1px #868686;
 }
 
 .search:focus {
-  box-shadow: 0 0 8px 3px #00bbff;
+  box-shadow: 0 0 8px 3px #868686;
 }
 
 .button-clear {
   position: absolute;
-  bottom: 78px;
+  top: 28px;
   left: -5px;
 
   width: 45px;
@@ -158,7 +157,7 @@ button {
 .button-search {
   position: absolute;
   right: 10px;
-  bottom: 87px;
+  top: 35px;
 
   width: 30px;
   height: 30px;
@@ -177,21 +176,22 @@ button {
 .button-microphone {
   position: absolute;
   right: 50px;
-  bottom: 85px;
+  top: 35px;
   width: 17px;
   height: 31px;
-z-index: 1;
+
   background-image: url("image/icon/microphone.png");
   background-size: cover;
   transition: transform 0.2s linear;
 }
 
 .button-disable-microphone {
+  z-index: 1;
   background-image: url("image/icon/mute-micro.jpg");
   background-size: cover;
   position: absolute;
   right: 42px;
-  bottom: 85px;
+  top: 35px;
 opacity: 0;
   width: 30px;
   height: 30px;
@@ -235,7 +235,7 @@ opacity: 0;
 .delimiter {
   position: absolute;
   right: 72px;
-  bottom: 80px;
+  top: 30px;
 
   display: inline-block;
   height: 40px;
@@ -243,10 +243,25 @@ opacity: 0;
   border: 0.5px solid rgba(116, 116, 116, 0.411);
 }
 
-/*slide with moviw*/
+/*slide with movie*/
+.search-result {
+  min-height: 50px;
+  font-size: 2em;
+  color: #ffffff;
+  text-overflow: ellipsis;
+overflow: hidden;
+}
+
+.search-result-found {
+  text-decoration: underline;
+  margin-top: 25px;
+  text-align: center;
+  font-size: 1.3em;
+  color: #ffffff;
+}
 
 .swiper-slide {
-  padding: 10px 0 20px;
+  padding: 10px 0 0 0;
 
   text-align: center;
 
@@ -255,7 +270,9 @@ opacity: 0;
 }
 
 .movie-title {
-  font-size: 1.1em;
+  display: block;
+  min-height: 35px;
+  font-size: 1em;
   color: black;
 
   cursor: pointer;
@@ -264,8 +281,8 @@ opacity: 0;
 .movie-image {
   display: block;
   width: 100%;
-  height: 80%;
-  margin: 15px 0;
+  height: 81%;
+  margin: 10px 0;
 
   background-image: url("https://m.media-amazon.com/images/M/MV5BMTE5NzIwMGUtYTE1MS00MDUxLTgyZjctOWVkZDAxM2M4ZWQ4XkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_SX300.jpg");
   background-size: cover;

@@ -9,7 +9,7 @@ var swiper = new Swiper('.swiper-container', {
     320: {
       slidesPerGroup: 1,
       slidesPerView: 1,
-      spaceBetween: 10,
+      spaceBetween: 15,
     },
     450: {
       slidesPerGroup: 2,
@@ -19,12 +19,12 @@ var swiper = new Swiper('.swiper-container', {
     620: {
       slidesPerGroup: 3,
       slidesPerView: 3,
-      spaceBetween: 30,
+      spaceBetween: 20,
     },
     800: {
       slidesPerGroup: 4,
       slidesPerView: 4,
-      spaceBetween: 40,
+      spaceBetween: 20,
     },
   },
 });

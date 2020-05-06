@@ -13,7 +13,7 @@ class MainApp {
   }
 
   createDOM() {
-    this.speakButton = document.querySelector('.button-microphone');
+    this.speakButton = document.querySelector('.button-disable-microphone');
     this.swiperWrapper = document.querySelector('.swiper-wrapper');
     this.sliderCopy = document.querySelector('.swiper-slide');
     this.sliderCopy.remove();
@@ -35,16 +35,14 @@ class MainApp {
     if (!this.microActive) {
       this.microActive = true;
       this.recognition.start();
-      this.speakButton.classList.add('microphone-active');
-      this.speakButton.style.opacity = '0';
-      document.querySelector('.button-disable-microphone').style.opacity = '1';
+      document.querySelector('.button-microphone').style.opacity = '0';
+      this.speakButton.style.opacity = '1';
       search.input.focus();
     } else {
       this.microActive = false;
       this.recognition.stop();
-      this.speakButton.classList.remove('microphone-active');
-      this.speakButton.style.opacity = '1';
-      document.querySelector('.button-disable-microphone').style.opacity = '0';
+      document.querySelector('.button-microphone').style.opacity = '1';
+      this.speakButton.style.opacity = '0';
     }
   }
 
@@ -91,6 +89,8 @@ class MainApp {
       newSlide.querySelector('.movie-rate').textContent = jsonRate[i];
       this.swiperWrapper.append(newSlide);
     }
+    document.querySelector('.search-result').innerHTML = `Results for "<b>${this.currentMovie}</b>"`;
+    document.querySelector('.search-result-found').innerHTML = `Found ${this.data.totalResults} results`;
     jsonRate = [];
     swiper.update();
   }

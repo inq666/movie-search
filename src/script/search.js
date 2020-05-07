@@ -15,6 +15,12 @@ class Search {
     this.clearButton.addEventListener('click', () => {
       this.input.value = '';
     });
+    document.addEventListener('keydown', (event) => {
+      if (event.code === 'Enter') this.enterInput();
+    });
+    document.addEventListener('click', (event) => {
+      if (event.target.closest('.enter')) this.enterInput();
+    });
     this.searchButton.addEventListener('click', () => this.enterInput());
   }
 
@@ -28,9 +34,10 @@ class Search {
     }
 
     this.clear = true;
+    mainApp.microActive = false;
+    mainApp.recognition.stop();
     mainApp.page = 1;
     mainApp.getMovie();
-    this.input.value = '';
   }
 }
 

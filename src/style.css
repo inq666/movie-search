@@ -156,8 +156,8 @@ button {
 
 .button-search {
   position: absolute;
-  right: 10px;
   top: 35px;
+  right: 10px;
 
   width: 30px;
   height: 30px;
@@ -175,38 +175,45 @@ button {
 
 .button-microphone {
   position: absolute;
-  right: 50px;
   top: 35px;
+  right: 50px;
+
   width: 17px;
   height: 31px;
 
   background-image: url("image/icon/microphone.png");
   background-size: cover;
+
   transition: transform 0.2s linear;
 }
 
 .button-disable-microphone {
-  z-index: 1;
-  background-image: url("image/icon/mute-micro.jpg");
-  background-size: cover;
   position: absolute;
-  right: 42px;
   top: 35px;
-opacity: 0;
+  right: 42px;
+  z-index: 1;
+
   width: 30px;
   height: 30px;
+
+  background-image: url("image/icon/mute-micro.jpg");
+  background-size: cover;
+  opacity: 0;
 }
 
 .button-disable-microphone::before {
-  cursor: default;
+  content: "";
+  position: absolute;
   top: 9px;
   left: -16px;
-  content: "";
+
   width: 12px;
   height: 12px;
-  border-radius: 50%;
+
   background-color: red;
-  position: absolute;
+  border-radius: 50%;
+  cursor: default;
+
   animation: recording 0.7s linear alternate infinite;
 }
 
@@ -221,8 +228,8 @@ opacity: 0;
 
 .button-keyboard {
   position: absolute;
-  right: -60px;
   top: 32px;
+  right: -60px;
 
   width: 50px;
   height: 35px;
@@ -234,8 +241,8 @@ opacity: 0;
 
 .delimiter {
   position: absolute;
-  right: 72px;
   top: 30px;
+  right: 72px;
 
   display: inline-block;
   height: 40px;
@@ -246,18 +253,20 @@ opacity: 0;
 /*slide with movie*/
 .search-result {
   min-height: 50px;
+  overflow: hidden;
+
   font-size: 2em;
   color: #ffffff;
   text-overflow: ellipsis;
-overflow: hidden;
 }
 
 .search-result-found {
-  text-decoration: underline;
   margin-top: 25px;
-  text-align: center;
+
   font-size: 1.3em;
+  text-align: center;
   color: #ffffff;
+  text-decoration: underline;
 }
 
 .swiper-slide {
@@ -270,8 +279,10 @@ overflow: hidden;
 }
 
 .movie-title {
+  font-weight: bold;
   display: block;
   min-height: 35px;
+
   font-size: 1em;
   color: black;
 
@@ -285,15 +296,16 @@ overflow: hidden;
   margin: 10px 0;
 
   background-image: url("image/no-image.jpg");
-  background-size: cover;
   background-position: center;
+  background-size: cover;
 }
 
 .movie-year {
-  padding-bottom: 5px;
-  border-bottom: 0.5px solid rgb(238, 238, 238);
   display: block;
   margin-bottom: 7px;
+  padding-bottom: 5px;
+
+  border-bottom: 0.5px solid rgb(238, 238, 238);
 }
 
 .movie-rate {
@@ -376,11 +388,14 @@ overflow: hidden;
 
 /* keyboard style */
 .wrapper {
-  top: 20%;
+  position: absolute;
+  top: 16%;
   right: 100px;
   z-index: 999;
-  position: absolute;
-  width: 945px;
+
+  display: none;
+  width: 900px;
+
   background-color: rgb(255, 136, 0);
   border-radius: 10px;
 }
@@ -434,37 +449,24 @@ overflow: hidden;
   user-select: none;
 }
 
-.tab,
-.altLeft,
-.altRight,
-.controlLeft,
-.controlRight,
-.backSlash,
-.delete {
-  width: 70px;
-
-  background-color: rgb(223, 223, 223);
-}
-
-.backquote,
-.metaLeft,
-.arrowLeft,
-.arrowDown,
-.arrowUp,
-.arrowRight {
-  background-color: rgb(223, 223, 223);
-}
 
 .space {
-  width: 370px;
+  width: 500px;
+  margin-left: 50px;
 
   background-color: rgb(223, 223, 223);
 }
 
 .capsLock {
-  width: 100px;
+  width: 90px;
 
   background-color: rgb(223, 223, 223);
+}
+
+.language {
+  width: 150px;
+
+  background-color: rgb(179, 179, 179);
 }
 
 .shiftLeft,
@@ -475,15 +477,19 @@ overflow: hidden;
 }
 
 .enter {
-  width: 160px;
+  width: 110px;
 
   background-color: rgb(223, 223, 223);
 }
 
 .backspace {
-  width: 150px;
+  width: 100px;
 
   background-color: rgb(223, 223, 223);
+}
+
+.keyQ {
+  margin-left: 60px;
 }
 
 .key:hover {
@@ -510,3 +516,101 @@ overflow: hidden;
   }
 }
 
+/*loading animation*/
+.animation-container {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.747);
+  z-index: 999;
+}
+
+.cssload-container {
+
+  width: 165px;
+  margin: 18% auto 0;
+}
+
+.cssload-circle-1 {
+  width: 165px;
+  height: 165px;
+
+  background: rgb(97,46,141);
+}
+
+.cssload-circle-2 {
+  width: 138px;
+  height: 138px;
+
+  background: rgb(194,34,134);
+}
+
+.cssload-circle-3 {
+  width: 110px;
+  height: 110px;
+
+  background: rgb(234,34,94);
+}
+
+.cssload-circle-4 {
+  width: 83px;
+  height: 83px;
+
+  background: rgb(237,91,53);
+}
+
+.cssload-circle-5 {
+  width: 55px;
+  height: 55px;
+
+  background: rgb(245,181,46);
+}
+
+.cssload-circle-6 {
+  width: 28px;
+  height: 28px;
+
+  background: rgb(129,197,64);
+}
+
+.cssload-circle-7 {
+  width: 14px;
+  height: 14px;
+
+  background: rgb(0,163,150);
+}
+
+.cssload-circle-8 {
+  width: 7px;
+  height: 7px;
+
+  background: rgb(22,116,188);
+}
+
+.cssload-circle-1,
+.cssload-circle-2,
+.cssload-circle-3,
+.cssload-circle-4,
+.cssload-circle-5,
+.cssload-circle-6,
+.cssload-circle-7,
+.cssload-circle-8 {
+  border-bottom: none;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+
+  animation-name: cssload-spin;
+  animation-duration: 1800ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes cssload-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

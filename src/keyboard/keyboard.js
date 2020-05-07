@@ -8,15 +8,13 @@ class KeyBoard {
     this.engLowerCase = keys.engLowerCase;
     this.keyCode = keys.keyCode;
     this.capsMode = false;
-  }
-
-  init() {
-    this.wrapper = document.createElement('div');
-    this.wrapper.classList.add('wrapper', 'clearFix');
-    document.body.prepend(this.wrapper);
+    this.keyboardActive = false;
+    this.language = true;
+    this.wrapper = document.querySelector('.wrapper');
   }
 
   addDomElements() {
+    this.keyBoardButton = document.querySelector('.button-keyboard');
     this.capsLock = document.querySelector('.capsLock');
     this.upperCaseKey = document.querySelectorAll('.off');
     this.lowerCaseKey = document.querySelectorAll('.on');
@@ -25,14 +23,16 @@ class KeyBoard {
     this.rusKeys = document.querySelectorAll('.activeKeys');
     this.engKeys = document.querySelectorAll('.disableKeys');
     this.input = document.querySelector('.search');
+    this.changeLanguage = document.querySelector('.language');
   }
 
   addKeysListener() {
+
     this.input.addEventListener('blur', () => {
-      this.input.focus();
+      if (this.keyboardActive) {
+        this.input.focus();
+      }
     });
-    window.addEventListener('keydown', (e) => this.keyDown(e));
-    window.addEventListener('keyup', (e) => this.keyUp(e));
     this.wrapper.addEventListener('click', (e) => this.mouseClick(e));
     this.leftShift.addEventListener('mousedown', () => this.caseUpper());
     this.rightShift.addEventListener('mousedown', () => this.caseUpper());
@@ -41,13 +41,23 @@ class KeyBoard {
     window.addEventListener('blur', () => {
       document.querySelectorAll('.activeKeyBoard').forEach((item) => item.classList.remove('activeKeyBoard'));
     });
-    document.addEventListener('keydown', (e) => {
-      if (e.shiftKey && e.altKey) {
-        if (localStorage.getItem('language') === 'RU') {
-          this.engCase();
-        } else {
-          this.rusCase();
-        }
+    this.changeLanguage.addEventListener('click', () => {
+      if (this.language) {
+        this.language = false;
+        this.rusCase();
+      } else {
+        this.language = true;
+        this.engCase();
+      }
+    });
+    this.keyBoardButton.addEventListener('click', () => {
+      if (this.keyboardActive) {
+        this.keyboardActive = false;
+        this.wrapper.style.display = 'none';
+      } else {
+        this.keyboardActive = true;
+        this.input.focus();
+        this.wrapper.style.display = 'block';
       }
     });
   }
@@ -91,31 +101,9 @@ class KeyBoard {
   }
 
   checkKey(str) {
-    console.log(str)
     switch (str) {
-      case 'Enter':
-        this.input.value += '\n';
-        break;
-      case 'Tab':
-        this.input.value += '\t';
-        break;
       case 'Backspace':
         this.deleteSymbolPrev();
-        break;
-      case 'Delete':
-        this.deleteSymbolNext();
-        break;
-      case 'ArrowLeft':
-        this.arrowMove('ArrowLeft');
-        break;
-      case 'ArrowRight':
-        this.arrowMove('ArrowRight');
-        break;
-      case 'ArrowUp':
-        this.arrowMove('ArrowUp');
-        break;
-      case 'ArrowDown':
-        this.arrowMove('ArrowDown');
         break;
       case 'CapsLock':
         this.changeCase();
@@ -134,35 +122,6 @@ class KeyBoard {
     const text = e.target.closest('.key').querySelector('.activeKeys').querySelector('.on').textContent;
     if (text.length > 1) return;
     this.input.value += text;
-  }
-
-  keyDown(e) {
-    e.preventDefault();
-    if (e.code === 'CapsLock') {
-      this.changeCase();
-      return;
-    }
-    if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') this.caseUpper();
-    this.checkKey(e.code);
-    const pressedKey = e.code[0].toLowerCase() + e.code.slice(1);
-    const key = document.querySelector(`.${pressedKey}`);
-    if (key === null) return;
-    key.classList.add('activeKeyBoard');
-    const text = key.querySelector('.activeKeys').querySelector('.on').textContent;
-    if (text.length > 1) return;
-    this.input.value += text;
-  }
-
-  keyUp(e) {
-    if (e.code === 'CapsLock') return;
-    const pressedKey = e.code[0].toLowerCase() + e.code.slice(1);
-    const key = document.querySelector(`.${pressedKey}`);
-    if (key === null) return;
-    key.classList.remove('activeKeyBoard');
-    if (e.key === 'Shift') {
-      if (this.capsMode) return;
-      this.caseLower(e);
-    }
   }
 
   changeCase() {
@@ -200,41 +159,11 @@ class KeyBoard {
     this.input.selectionEnd = cursorNum - 1;
   }
 
-  deleteSymbolNext() {
-    const cursorNum = this.input.selectionStart;
-    console.log(cursorNum)
-
-    if (cursorNum === this.input.value.length) return;
-    const string = this.input.value;
-    this.input.value = string.slice(0, cursorNum) + string.slice(cursorNum + 1, string.length);
-    this.input.selectionStart = cursorNum;
-    this.input.selectionEnd = cursorNum;
-  }
-
-  arrowMove(direction) {
-    const cursor = this.input.selectionStart;
-    if (direction === 'ArrowRight') {
-      this.input.selectionStart = cursor + 1;
-      this.input.selectionEnd = cursor + 1;
-    } else if (direction === 'ArrowLeft') {
-      if (cursor === 0) return;
-      this.input.selectionStart = cursor - 1;
-      this.input.selectionEnd = cursor - 1;
-    } else if (direction === 'ArrowUp') {
-      this.input.selectionStart = 0;
-      this.input.selectionEnd = 0;
-    } else if (direction === 'ArrowDown') {
-      this.input.selectionStart = -1;
-      this.input.selectionEnd = -1;
-    }
-  }
-
   rusCase() {
     this.rusKeys.forEach((item) => item.classList.remove('disableKeys'));
     this.rusKeys.forEach((item) => item.classList.add('activeKeys'));
     this.engKeys.forEach((item) => item.classList.remove('activeKeys'));
     this.engKeys.forEach((item) => item.classList.add('disableKeys'));
-    localStorage.setItem('language', 'RU');
   }
 
   engCase() {
@@ -242,27 +171,15 @@ class KeyBoard {
     this.rusKeys.forEach((item) => item.classList.add('disableKeys'));
     this.engKeys.forEach((item) => item.classList.remove('disableKeys'));
     this.engKeys.forEach((item) => item.classList.add('activeKeys'));
-    localStorage.setItem('language', 'ENG');
-  }
-
-  checkLanguage() {
-    if (localStorage.getItem('language') === 'ENG') {
-      this.engCase();
-    } else {
-      this.rusCase();
-    }
-  }
-
-  clearInput() {
-    this.input.value = '';
   }
 }
 
 const virtualKeyBoard = new KeyBoard();
-virtualKeyBoard.init();
-virtualKeyBoard.addVirtualKeys();
-virtualKeyBoard.addDomElements();
-virtualKeyBoard.addKeysListener();
-virtualKeyBoard.checkLanguage();
+window.onload = () => {
+  virtualKeyBoard.addVirtualKeys();
+  virtualKeyBoard.addDomElements();
+  virtualKeyBoard.addKeysListener();
+  virtualKeyBoard.engCase();
+};
 
 export default virtualKeyBoard;

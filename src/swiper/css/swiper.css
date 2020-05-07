@@ -150,7 +150,7 @@
   align-items: center;
   justify-content: center;
   color: var(--swiper-navigation-color, var(--swiper-theme-color));
-  transition: opacity 0.2s, left 0.2s, right 0.2s linear;
+  transition: transform 0.1s, opacity 0.2s, left 0.2s, right 0.2s linear;
 }
 
 
@@ -162,6 +162,14 @@
 .swiper-button-prev:hover {
   left: -73px;
   opacity: 1;
+}
+
+.swiper-button-next:active {
+  transform: scale(0.95);
+}
+
+.swiper-button-prev:active {
+  transform: scale(0.95);
 }
 
 

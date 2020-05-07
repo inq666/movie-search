@@ -27,6 +27,16 @@ class MainApp {
       if (this.microActive) this.recognition.start();
     });
     window.addEventListener('mousedown', (event) => this.countSlides(event));
+    window.addEventListener('mouseover', (event) => this.visibilityInfo(event));
+  }
+
+  visibilityInfo(event) {
+    if (event.target.classList.contains('movie-info-button')) {
+      this.target = event.target.closest('.swiper-slide').querySelector('.movie-info');
+      this.target.style.opacity = '1';
+    } else if (this.target && !event.target.classList.contains('movie-info-button')) {
+      this.target.style.opacity = '0';
+    }
   }
 
   activeMicrophone() {
@@ -96,7 +106,7 @@ class MainApp {
     await Promise.all(requests)
       .then((responses) => Promise.all(responses.map((data) => data.json())))
       .then((item) => item.forEach((rating) => this.dataMovie.push(rating)));
-      console.log(this.dataMovie)
+    console.log(this.dataMovie)
     this.createCardMovie();
   }
 
@@ -108,6 +118,15 @@ class MainApp {
       newSlide.querySelector('.movie-image').href = `https://www.imdb.com/title/${this.data.Search[i].imdbID}/videogallery/`;
       newSlide.querySelector('.movie-year').textContent = `${this.data.Search[i].Year}, ${this.dataMovie[i].Country}`;
       newSlide.querySelector('.movie-rate').innerHTML = `<b>${this.dataMovie[i].imdbRating}</b>`;
+
+      newSlide.querySelector('.name').textContent = `${this.data.Search[i].Title} (${this.data.Search[i].Year})`;
+      newSlide.querySelector('.name').href = `https://www.imdb.com/title/${this.data.Search[i].imdbID}/?ref_=fn_al_tt_1`;
+      newSlide.querySelector('.description').innerHTML = `<b>Plot:</b> ${this.dataMovie[i].Plot}`;
+      newSlide.querySelector('.genre').innerHTML = `<b>Genre:</b> ${this.dataMovie[i].Genre}`;
+      newSlide.querySelector('.type-movie').innerHTML = this.dataMovie[i].Type;
+      newSlide.querySelector('.run-time').innerHTML = `<b>Runtime:</b> ${this.dataMovie[i].Runtime}`;
+      newSlide.querySelector('.rate').innerHTML = `<b>Rated:</b> ${this.dataMovie[i].Rated}`;
+      newSlide.querySelector('.actors').innerHTML = `<b>Actors:</b> ${this.dataMovie[i].Actors}`;
       this.swiperWrapper.append(newSlide);
       if (this.data.Search[i].Poster !== 'N/A') {
         newSlide.querySelector('.movie-image').style.backgroundImage = `url(${this.data.Search[i].Poster})`;

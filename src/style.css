@@ -2,8 +2,7 @@ body {
   margin: 0 auto;
 
   font-family: "Roboto", sans-serif;
-
-  background-image: url("image/background.png");
+  background-image: url("image/body.jpg");
   background-size: cover;
 }
 
@@ -31,29 +30,16 @@ button {
   cursor: pointer;
 }
 
+.main {
+  background-image: url("image/background2.jpg");
+  background-size: cover;
+}
+
 .container {
-  max-width: 1300px;
+  height: 90vh;
+  max-width: 1200px;
   margin: 0 auto;
-}
-
-.main-page {
   position: relative;
-
-  height: 90.1vh;
-}
-
-.main-page:before {
-  content: "";
-  position: absolute;
-  top: -5%;
-  left: -5%;
-  z-index: -1;
-
-  width: 110%;
-  height: 110%;
-
-  background-color: rgba(0, 0, 0, 0.877);
-  filter: blur(10px);
 }
 
 /*swiper*/
@@ -65,37 +51,15 @@ button {
 /*header*/
 .header {
   text-align: center;
-
-  background-color: rgb(0, 0, 0);
-}
-
-.header-background {
-  display: inline-block;
-  width: 600px;
-  height: 65px;
-
-  background-image: url("image/header-logo.png");
-  background-size: cover;
 }
 
 .header-title {
-  position: absolute;
-  left: 40%;
-
-  font-size: 3em;
+  font-size: 1.5em;
   font-family: "Permanent Marker", cursive;
   color: #ffffff;
   letter-spacing: 5px;
 
   cursor: pointer;
-}
-
-.header-inner {
-  transition: transform 0.3s linear;
-}
-
-.header-inner:hover {
-  transform: scale(1.07);
 }
 
 /*search*/
@@ -107,14 +71,14 @@ button {
 }
 
 .search {
-  width: 1000px;
+  width: 800px;
   height: 40px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   padding: 15px 100px 15px 40px;
 
   font-size: 1.3em;
 
-  background-color: rgb(227, 255, 247);
+  background-color: rgb(255, 255, 255);
   border: none;
   border-radius: 15px;
   outline: none;
@@ -123,17 +87,17 @@ button {
 }
 
 .search:hover {
-  box-shadow: 0 0 5px 1px #868686;
+  box-shadow: 0 0 5px 1px #5900ff;
 }
 
 .search:focus {
-  box-shadow: 0 0 8px 3px #868686;
+  box-shadow: 0 0 8px 3px #5900ff;
 }
 
 .button-clear {
   position: absolute;
   top: 28px;
-  left: -5px;
+left: -5px;
 
   width: 45px;
   height: 45px;
@@ -176,7 +140,7 @@ button {
 .button-microphone {
   position: absolute;
   top: 35px;
-  right: 50px;
+  right: 108px;
 
   width: 17px;
   height: 31px;
@@ -190,7 +154,7 @@ button {
 .button-disable-microphone {
   position: absolute;
   top: 35px;
-  right: 42px;
+  right: 100px;
   z-index: 1;
 
   width: 30px;
@@ -205,7 +169,7 @@ button {
   content: "";
   position: absolute;
   top: 9px;
-  left: -16px;
+  left: -18px;
 
   width: 12px;
   height: 12px;
@@ -228,21 +192,43 @@ button {
 
 .button-keyboard {
   position: absolute;
-  top: 32px;
-  right: -60px;
+  top: 30px;
+  right: 50px;
 
-  width: 50px;
+  width: 45px;
   height: 35px;
 
   background-image: url("image/icon/keyboard.png");
   background-position: center;
   background-size: cover;
+  transition: transform 0.1s linear;
+}
+
+.button-keyboard:hover {
+transform: scale(1.05);
+}
+
+.button-my-movie {
+  padding: 8px;
+  position: absolute;
+  top: 27px;
+  right: 50px;
+  width: 250px;
+  font-size: 1.3em;
+  color: rgb(0, 0, 0);
+background-color: #ffffff9c;
+  border-radius: 20px;
+  transition: background 0.1s linear;
+}
+
+.button-my-movie:hover {
+  background-color: #ffffff;
 }
 
 .delimiter {
   position: absolute;
   top: 30px;
-  right: 72px;
+  right: 130px;
 
   display: inline-block;
   height: 40px;
@@ -252,11 +238,13 @@ button {
 
 /*slide with movie*/
 .search-result {
-  min-height: 50px;
+  text-align: center;
+  border-radius: 30px;
+  padding: 0px 40px;
   overflow: hidden;
-
+background-color: #ffffff59;
   font-size: 2em;
-  color: #ffffff;
+  color: #000000;
   text-overflow: ellipsis;
 }
 
@@ -285,9 +273,8 @@ button {
   right: 0;
   z-index: 900;
 
-  width: 310px;
+  width: 285px;
   height: 477.89px;
-  /*  box-shadow: 0 0 15px rgb(117, 63, 0); */
 
   text-align: left ;
 
@@ -401,7 +388,7 @@ button {
   padding-right: 40px;
 
   font-weight: bold;
-  font-size: 1em;
+  font-size: 0.8em;
   color: black;
 
   cursor: pointer;
@@ -455,6 +442,7 @@ button {
   background-position: center;
   background-size: cover;
   opacity: 0.3;
+
   transition: transform 0.15s linear;
 }
 
@@ -520,8 +508,6 @@ button {
   justify-content: space-around;
   width: 100%;
   padding: 5px;
-
-  background-color: #000000ef;
 }
 
 .footer a {
@@ -530,21 +516,19 @@ button {
   align-items: center;
 
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 2em;
   font-family: "Indie Flower", cursive;
-  color: #ffffff;
+  color: #000000;
   text-decoration: none;
 
   cursor: pointer;
-
   transition: transform 0.2s linear;
 }
 .github-icon {
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   margin-right: 7px;
-  margin-bottom: 2px;
 
   background-image: url("image/icon/github.png");
   background-size: cover;

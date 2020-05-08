@@ -778,3 +778,68 @@ background-color: #ffffff59;
     transform: rotate(360deg);
   }
 }
+
+/*MODAL-WINDOW MY-MOVIES*/
+.modal-window {
+  top: 0;
+  z-index: 950;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.541);
+  width: 100vw;
+  height: 100vh;
+}
+
+.my-movie {
+  padding-top: 70px;
+  padding-right: 80px;
+  position: relative;
+  width: 800px;
+  height: 800px;
+  margin: 3% auto 0;
+  background-color: rgb(255, 255, 255);
+}
+
+.watch-later {
+  width: 50%;
+  height: 50px;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: rgb(22, 214, 214);
+  position: absolute;
+}
+
+.favorite-movie {
+  width: 50%;
+  height: 50px;
+  z-index: 999;
+  background-color: aqua;
+  top: 0;
+  right: 0;
+  position: absolute;
+}
+ 
+.list-movie-item {
+  margin-left: 10px;
+  display: flex;
+}
+
+.poster-list-movie {
+  min-width: 70px;
+  height: 110px;
+  background-size: cover;
+  background-image: url("https://m.media-amazon.com/images/M/MV5BMTE5NzIwMGUtYTE1MS00MDUxLTgyZjctOWVkZDAxM2M4ZWQ4XkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_SX300.jpg");
+}
+
+.description-list-movie {
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.title-list-movie {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+

@@ -82,6 +82,7 @@ class MainApp {
   }
 
   async getDataMovie() {
+    console.log(this.data)
     if (this.data.Response === 'False') {
       if (this.page === 1) {
         document.querySelector('.search-result').innerHTML = `No results found for "<b>${this.currentMovie}</b>"`;

@@ -1,5 +1,6 @@
 import search from './script/search.js';
 import keyboard from './keyboard/keyboard.js';
+import listMovie from './script/add-list-movie.js';
 
 class MainApp {
   constructor() {
@@ -82,7 +83,6 @@ class MainApp {
   }
 
   async getDataMovie() {
-    console.log(this.data)
     if (this.data.Response === 'False') {
       if (this.page === 1) {
         document.querySelector('.search-result').innerHTML = `No results found for "<b>${this.currentMovie}</b>"`;
@@ -107,11 +107,11 @@ class MainApp {
     await Promise.all(requests)
       .then((responses) => Promise.all(responses.map((data) => data.json())))
       .then((item) => item.forEach((rating) => this.dataMovie.push(rating)));
-    console.log(this.dataMovie)
     this.createCardMovie();
   }
 
   createCardMovie() {
+    const posterUnavailable = 'N/A';
     for (let i = 0; i < this.data.Search.length; i += 1) {
       const newSlide = this.sliderCopy.cloneNode(true);
       newSlide.querySelector('.movie-title').textContent = this.data.Search[i].Title;
@@ -128,9 +128,11 @@ class MainApp {
       newSlide.querySelector('.run-time').innerHTML = `<b>Runtime:</b> ${this.dataMovie[i].Runtime}`;
       newSlide.querySelector('.rate').innerHTML = `<b>Rated:</b> ${this.dataMovie[i].Rated}`;
       newSlide.querySelector('.actors').innerHTML = `<b>Actors:</b> ${this.dataMovie[i].Actors}`;
+      newSlide.dataset.id = this.data.Search[i].imdbID;
       this.swiperWrapper.append(newSlide);
-      if (this.data.Search[i].Poster !== 'N/A') {
+      if (this.data.Search[i].Poster !== posterUnavailable) {
         newSlide.querySelector('.movie-image').style.backgroundImage = `url(${this.data.Search[i].Poster})`;
+        this.checkMovie(newSlide);
       }
     }
     document.querySelector('.search-result').innerHTML = `Results for "<b>${this.currentMovie}</b>"`;
@@ -140,12 +142,29 @@ class MainApp {
       this.loader.style.display = 'none';
     }, 500);
   }
+
+  checkMovie(slide) {
+    listMovie.myLoveMovie.forEach((item) => {
+      if (item.id === slide.dataset.id) {
+        slide.querySelector('.love-movie-button').style.opacity = '1';
+        slide.dataset.favorite = 'true';
+      }
+    })
+
+    listMovie.myWillWatch.forEach((item) => {
+      if (item.id === slide.dataset.id) {
+        slide.querySelector('.will-watch').style.opacity = '0.8';
+        slide.querySelector('.will-watch-confrim').style.backgroundImage = 'url("image/icon/v.png")';
+        slide.querySelector('.will-watch-confrim').style.opacity = '1';
+        slide.dataset.willLater = 'true';
+      }
+    })
+  }
 }
 
 const movieSearch = new MainApp();
 movieSearch.createDOM();
 movieSearch.addEventListener();
 movieSearch.getMovie();
-
 
 export default movieSearch;

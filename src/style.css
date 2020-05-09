@@ -45,7 +45,7 @@ button {
 /*swiper*/
 .swiper-container {
   width: 100%;
-  height: 600px;
+  height: 37.5rem;
 }
 
 /*header*/
@@ -54,12 +54,11 @@ button {
 }
 
 .header-title {
-  font-size: 1.5em;
+  cursor: default;
+  font-size: 1.7em;
   font-family: "Permanent Marker", cursive;
   color: #ffffff;
-  letter-spacing: 5px;
-
-  cursor: pointer;
+  letter-spacing: 0.3125rem;
 }
 
 /*search*/
@@ -67,40 +66,40 @@ button {
   position: relative;
 
   display: inline-block;
-  padding-top: 30px;
+  padding-top: 1.875rem;
 }
 
 .search {
-  width: 800px;
-  height: 40px;
-  margin-bottom: 30px;
-  padding: 15px 100px 15px 40px;
+  width: 50rem;
+  height: 2.5rem;
+  margin-bottom: 1.875rem;
+  padding: 0.9375rem 6.25rem 0.9375rem 2.5rem;
 
   font-size: 1.3em;
 
   background-color: rgb(255, 255, 255);
   border: none;
-  border-radius: 15px;
+  border-radius: 0.9375rem;
   outline: none;
 
   transition: box-shadow 0.2s linear;
 }
 
 .search:hover {
-  box-shadow: 0 0 5px 1px #5900ff;
+  box-shadow: 0 0 0.3125rem 0.0625rem #5900ff;
 }
 
 .search:focus {
-  box-shadow: 0 0 8px 3px #5900ff;
+  box-shadow: 0 0 0.5rem 0.1875rem #5900ff;
 }
 
 .button-clear {
   position: absolute;
-  top: 28px;
-left: -5px;
+  top: 1.75rem;
+left: -0.3125rem;
 
-  width: 45px;
-  height: 45px;
+  width: 2.8125rem;
+  height: 2.8125rem;
 
   background-image: url("https://yastatic.net/s3/fiji-static/_/f0vM6kFiHLugimNeqhQEGoZgpUE.svg");
   background-position: center;
@@ -120,11 +119,11 @@ left: -5px;
 
 .button-search {
   position: absolute;
-  top: 35px;
-  right: 10px;
+  top: 2.1875rem;
+  right: 0.625rem;
 
-  width: 30px;
-  height: 30px;
+  width: 1.875rem;
+  height: 1.875rem;
 
   background-image: url("image/icon/search.png");
   background-position: center;
@@ -139,11 +138,11 @@ left: -5px;
 
 .button-microphone {
   position: absolute;
-  top: 35px;
-  right: 108px;
+  top: 2.1875rem;
+  right: 6.75rem;
 
-  width: 17px;
-  height: 31px;
+  width: 1.0625rem;
+  height: 1.9375rem;
 
   background-image: url("image/icon/microphone.png");
   background-size: cover;
@@ -153,12 +152,12 @@ left: -5px;
 
 .button-disable-microphone {
   position: absolute;
-  top: 35px;
-  right: 100px;
+  top: 2.1875rem;
+  right: 6.25rem;
   z-index: 1;
 
-  width: 30px;
-  height: 30px;
+  width: 1.875rem;
+  height: 1.875rem;
 
   background-image: url("image/icon/mute-micro.jpg");
   background-size: cover;
@@ -168,11 +167,11 @@ left: -5px;
 .button-disable-microphone::before {
   content: "";
   position: absolute;
-  top: 9px;
-  left: -18px;
+  top: 0.5625rem;
+  left: -1.125rem;
 
-  width: 12px;
-  height: 12px;
+  width: 0.75rem;
+  height: 0.75rem;
 
   background-color: red;
   border-radius: 50%;
@@ -192,11 +191,11 @@ left: -5px;
 
 .button-keyboard {
   position: absolute;
-  top: 30px;
-  right: 50px;
+  top: 1.875rem;
+  right: 3.125rem;
 
-  width: 45px;
-  height: 35px;
+  width: 2.8125rem;
+  height: 2.1875rem;
 
   background-image: url("image/icon/keyboard.png");
   background-position: center;
@@ -209,15 +208,15 @@ transform: scale(1.05);
 }
 
 .button-my-movie {
-  padding: 8px;
+  padding: 0.5rem;
   position: absolute;
-  top: 27px;
-  right: 50px;
-  width: 250px;
+  top: 1.6875rem;
+  right: 3.125rem;
+  width: 15.625rem;
   font-size: 1.3em;
   color: rgb(0, 0, 0);
 background-color: #ffffff9c;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   transition: background 0.1s linear;
 }
 
@@ -227,30 +226,29 @@ background-color: #ffffff9c;
 
 .delimiter {
   position: absolute;
-  top: 30px;
-  right: 130px;
+  top: 1.875rem;
+  right: 8.125rem;
 
   display: inline-block;
-  height: 40px;
+  height: 2.5rem;
 
-  border: 0.5px solid rgba(116, 116, 116, 0.411);
+  border: 0.0313rem solid rgba(116, 116, 116, 0.411);
 }
 
 /*slide with movie*/
 .search-result {
   text-align: center;
-  border-radius: 30px;
-  padding: 0px 40px;
+  border-radius: 1.875rem;
+  padding: 0rem 2.5rem;
   overflow: hidden;
-background-color: #ffffff59;
+background-color: #00000059;
   font-size: 2em;
-  color: #000000;
+  color: #ffffff;
   text-overflow: ellipsis;
 }
 
 .search-result-found {
-  margin-top: 25px;
-
+  margin-top: 1.5625rem;
   font-size: 1.3em;
   text-align: center;
   color: #ffffff;
@@ -258,23 +256,28 @@ background-color: #ffffff59;
 }
 
 .swiper-slide {
-  padding: 10px 0 0 0;
+  padding: 0.625rem 0 0 0;
 
   text-align: center;
 
-  background-color: #ffffff;
-  background-image: linear-gradient(19deg, #ffffff 0%, #faaca8 33%, #ddd6f3 66%, #ffffff 100%);
-  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.822);
+  border-radius: 0.9375rem;
+  transition: background 0.2s, box-shadow 0.2s linear !important;
+}
+
+.swiper-slide:hover {
+  background-color: rgb(255, 255, 255);
+  box-shadow: inset 0 0 0.625rem rgba(138, 0, 252, 0.575);
 }
 
 .movie-info {
   position: absolute;
-  top: 55px;
+  top: 3.4375rem;
   right: 0;
   z-index: 900;
 
-  width: 285px;
-  height: 477.89px;
+  width: 17.8125rem;
+  height: 29.8681rem;
 
   text-align: left ;
 
@@ -288,9 +291,9 @@ background-color: #ffffff59;
 
 .movie-info span {
   display: block;
-  padding: 10px;
+  padding: 0.625rem;
 
-  border-bottom: 1px dotted rgb(185, 185, 185);
+  border-bottom: 0.0625rem dotted rgb(185, 185, 185);
 }
 
 .movie-info span:last-child {
@@ -302,10 +305,10 @@ background-color: #ffffff59;
   top: 0;
   right: 0;
 
-  width: 80px;
-  height: 33px;
-  padding-top: 8px;
-  padding-left: 5px;
+  width: 5rem;
+  height: 2.0625rem;
+  padding-top: 0.5rem;
+  padding-left: 0.3125rem;
 
   font-weight: bold;
   color: #ffffff;
@@ -316,11 +319,11 @@ background-color: #ffffff59;
 .type-movie::after {
   content: "";
   position: absolute;
-  right: 5px;
+  right: 0.3125rem;
   z-index: 999;
 
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 
   background-image: url("image/icon/movie.png");
   background-size: cover;
@@ -338,17 +341,17 @@ background-color: #ffffff59;
 
 .movie-info a {
   display: block;
-  min-height: 42px;
-  margin: 10px auto 10px;
-  padding-right: 90px;
-  padding-bottom: 5px;
+  min-height: 2.625rem;
+  margin: 0.625rem auto 0.625rem;
+  padding-right: 5.625rem;
+  padding-bottom: 0.3125rem;
 
   font-weight: bold;
   text-align: center;
   color: #0b70b4;
   text-decoration: none;
 
-  border-bottom: 1px solid rgb(185, 185, 185);
+  border-bottom: 0.0625rem solid rgb(185, 185, 185);
 
   transition: color 0.2s linear;
 }
@@ -359,12 +362,12 @@ background-color: #ffffff59;
 
 .movie-info-button {
   position: absolute;
-  top: 7px;
-  right: 5px;
+  top: 0.4375rem;
+  right: 0.3125rem;
   z-index: 2;
 
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
 
   background-image: url("image/icon/info.png");
   background-position: center;
@@ -384,8 +387,8 @@ background-color: #ffffff59;
 
 .movie-title {
   display: block;
-  min-height: 35px;
-  padding-right: 40px;
+  min-height: 2.1875rem;
+  padding-right: 2.5rem;
 
   font-weight: bold;
   font-size: 0.8em;
@@ -395,10 +398,11 @@ background-color: #ffffff59;
 }
 
 .movie-image {
+  position: relative;
   display: block;
   width: 100%;
   height: 81%;
-  margin: 10px 0;
+  margin: 0.625rem 0;
 
   background-image: url("image/no-image.jpg");
   background-position: center;
@@ -407,10 +411,10 @@ background-color: #ffffff59;
 
 .movie-year {
   display: block;
-  margin-bottom: 7px;
-  padding-bottom: 5px;
+  margin-bottom: 0.4375rem;
+  padding-bottom: 0.3125rem;
 
-  border-bottom: 0.5px solid rgba(207, 207, 207, 0.87);
+  border-bottom: 0.0313rem solid rgba(207, 207, 207, 0.87);
 }
 
 .movie-rate {
@@ -420,11 +424,11 @@ background-color: #ffffff59;
 .movie-rate::before {
   content: "";
   position: absolute;
-  top: -1px;
-  left: -25px;
+  top: -0.0625rem;
+  left: -1.5625rem;
 
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 
   background-image: url("image/icon/star-rate.png");
   background-size: cover;
@@ -432,18 +436,18 @@ background-color: #ffffff59;
 
 .love-movie-button {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  right: 0.625rem;
+  bottom: 0.625rem;
 
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
 
   background-image: url("image/icon/heart.png");
   background-position: center;
   background-size: cover;
   opacity: 0.3;
 
-  transition: transform 0.15s linear;
+  transition: opacity 0.2s, transform 0.15s linear;
 }
 
 .love-movie-button:hover {
@@ -451,16 +455,16 @@ background-color: #ffffff59;
 }
 
 .love-movie-button:active {
-  transform: scale(1);
+  transform: scale(1.4);
 }
 
 .will-watch {
   position: absolute;
-  top: 55px;
+  top: 3.375rem;
   left: 0;
 
   width: 100%;
-  height: 35px;
+  height: 2.1875rem;
 
   font-weight: bold;
   font-size: 1.2em;
@@ -473,14 +477,15 @@ background-color: #ffffff59;
   transition: opacity 0.2s, background 0.2s linear;
 }
 
-.will-watch::before {
-  content: "";
+.will-watch-confrim {
+  cursor: pointer;
   position: absolute;
-  top: 4px;
-  left: 55px;
-
-  width: 27px;
-  height: 27px;
+  top: 3.5625rem;
+  left: 2.5rem;
+  pointer-events: none;
+  opacity: 0.4;
+  width: 1.9375rem;
+  height: 1.9375rem;
 
   background-image: url("image/icon/time.png");
   background-position: center;
@@ -488,26 +493,20 @@ background-color: #ffffff59;
 }
 
 .will-watch:hover {
-  opacity: 0.9;
+  opacity: 0.9 !important;
 }
 
 .will-watch:active {
   background-color: #000000;
 }
 
-
-
-
-
-
 .footer {
-  position: relative;
+  position: fixed;
   bottom: 0;
 
   display: flex;
   justify-content: space-around;
   width: 100%;
-  padding: 5px;
 }
 
 .footer a {
@@ -526,9 +525,9 @@ background-color: #ffffff59;
 }
 .github-icon {
   display: inline-block;
-  width: 50px;
-  height: 50px;
-  margin-right: 7px;
+  width: 3.125rem;
+  height: 3.125rem;
+  margin-right: 0.4375rem;
 
   background-image: url("image/icon/github.png");
   background-size: cover;
@@ -536,10 +535,10 @@ background-color: #ffffff59;
 
 .rss-icon {
   display: inline-block;
-  width: 90px;
-  height: 45px;
-  margin-right: 7px;
-  margin-bottom: 2px;
+  width: 5.625rem;
+  height: 2.8125rem;
+  margin-right: 0.4375rem;
+  margin-bottom: 0.125rem;
 
   background-image: url("image/icon/rss.svg");
   background-size: cover;
@@ -553,14 +552,14 @@ background-color: #ffffff59;
 .wrapper {
   position: absolute;
   top: 16%;
-  right: 100px;
+  right: 6.25rem;
   z-index: 999;
 
   display: none;
-  width: 900px;
+  width: 56.25rem;
 
   background-color: rgb(255, 136, 0);
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
 
 .clearFix::after {
@@ -595,16 +594,16 @@ background-color: #ffffff59;
 /* STYLE */
 .key {
   float: left;
-  width: 50px;
-  height: 50px;
-  margin: 5px;
-  padding-top: 11px;
+  width: 3.125rem;
+  height: 3.125rem;
+  margin: 0.3125rem;
+  padding-top: 0.6875rem;
 
   text-align: center;
   color: black;
 
   background-color: rgb(255, 255, 255);
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   cursor: pointer;
 
   transition: background 0.2s, border-radius 0.3s linear;
@@ -614,45 +613,45 @@ background-color: #ffffff59;
 
 
 .space {
-  width: 500px;
-  margin-left: 50px;
+  width: 31.25rem;
+  margin-left: 3.125rem;
 
   background-color: rgb(223, 223, 223);
 }
 
 .capsLock {
-  width: 90px;
+  width: 5.625rem;
 
   background-color: rgb(223, 223, 223);
 }
 
 .language {
-  width: 150px;
+  width: 9.375rem;
 
   background-color: rgb(179, 179, 179);
 }
 
 .shiftLeft,
 .shiftRight {
-  width: 130px;
+  width: 8.125rem;
 
   background-color: rgb(223, 223, 223);
 }
 
 .enter {
-  width: 110px;
+  width: 6.875rem;
 
   background-color: rgb(223, 223, 223);
 }
 
 .backspace {
-  width: 100px;
+  width: 6.25rem;
 
   background-color: rgb(223, 223, 223);
 }
 
 .keyQ {
-  margin-left: 60px;
+  margin-left: 3.75rem;
 }
 
 .key:hover {
@@ -692,62 +691,62 @@ background-color: #ffffff59;
 }
 
 .cssload-container {
-  width: 165px;
+  width: 10.3125rem;
   margin: 18% auto 0;
 }
 
 .cssload-circle-1 {
-  width: 165px;
-  height: 165px;
+  width: 10.3125rem;
+  height: 10.3125rem;
 
   background: rgb(97,46,141);
 }
 
 .cssload-circle-2 {
-  width: 138px;
-  height: 138px;
+  width: 8.625rem;
+  height: 8.625rem;
 
   background: rgb(194,34,134);
 }
 
 .cssload-circle-3 {
-  width: 110px;
-  height: 110px;
+  width: 6.875rem;
+  height: 6.875rem;
 
   background: rgb(234,34,94);
 }
 
 .cssload-circle-4 {
-  width: 83px;
-  height: 83px;
+  width: 5.1875rem;
+  height: 5.1875rem;
 
   background: rgb(237,91,53);
 }
 
 .cssload-circle-5 {
-  width: 55px;
-  height: 55px;
+  width: 3.4375rem;
+  height: 3.4375rem;
 
   background: rgb(245,181,46);
 }
 
 .cssload-circle-6 {
-  width: 28px;
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
 
   background: rgb(129,197,64);
 }
 
 .cssload-circle-7 {
-  width: 14px;
-  height: 14px;
+  width: 0.875rem;
+  height: 0.875rem;
 
   background: rgb(0,163,150);
 }
 
 .cssload-circle-8 {
-  width: 7px;
-  height: 7px;
+  width: 0.4375rem;
+  height: 0.4375rem;
 
   background: rgb(22,116,188);
 }
@@ -762,7 +761,7 @@ background-color: #ffffff59;
 .cssload-circle-8 {
   border-bottom: none;
   border-radius: 50%;
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  box-shadow: 0.0625rem 0.0625rem 0.0625rem rgba(0,0,0,0.1);
 
   animation-name: cssload-spin;
   animation-duration: 1800ms;
@@ -781,6 +780,7 @@ background-color: #ffffff59;
 
 /*MODAL-WINDOW MY-MOVIES*/
 .modal-window {
+  display: none;
   top: 0;
   z-index: 950;
   position: fixed;
@@ -790,43 +790,61 @@ background-color: #ffffff59;
 }
 
 .my-movie {
-  padding-top: 70px;
-  padding-right: 80px;
+  box-shadow:  0 0 0.9375rem #000000;
+  overflow-y: scroll;
+  padding-top: 4.375rem;
+  padding-right: 5rem;
   position: relative;
-  width: 800px;
-  height: 800px;
+  width: 50rem;
+  height: 50rem;
   margin: 3% auto 0;
   background-color: rgb(255, 255, 255);
 }
 
-.watch-later {
+.watch-later,
+.favorite-movie {
+  font-weight: bold;
+  text-transform: uppercase;
   width: 50%;
-  height: 50px;
-  z-index: 999;
+  height: 3.125rem;
+  z-index: 900;
   top: 0;
-  left: 0;
-  background-color: rgb(22, 214, 214);
+ font-size: 1.2em;
+  color: #ffffff6c;
+  background-color: rgb(0, 207, 235);
   position: absolute;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s linear;
 }
 
 .favorite-movie {
-  width: 50%;
-  height: 50px;
-  z-index: 999;
-  background-color: aqua;
-  top: 0;
   right: 0;
-  position: absolute;
 }
- 
+
+.watch-later:hover,
+.favorite-movie:hover {
+  color: #ffffff;
+}
+
+.active-tab {
+  z-index: 999;
+  color: #ffffff;
+  background-color: rgb(0, 165, 187);
+  box-shadow:  0 0 0.9375rem #9900ff;
+}
+
 .list-movie-item {
-  margin-left: 10px;
+  padding-bottom: 0.625rem;
+  border-bottom: 0.0625rem dotted rgba(0, 0, 0, 0.205);
+  position: relative;
+  margin-bottom: 1.25rem;
+  margin-left: 0.625rem;
   display: flex;
 }
 
 .poster-list-movie {
-  min-width: 70px;
-  height: 110px;
+  cursor: pointer;
+  min-width: 4.375rem;
+  height: 6.875rem;
   background-size: cover;
   background-image: url("https://m.media-amazon.com/images/M/MV5BMTE5NzIwMGUtYTE1MS00MDUxLTgyZjctOWVkZDAxM2M4ZWQ4XkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_SX300.jpg");
 }
@@ -835,11 +853,60 @@ background-color: #ffffff59;
   text-align: justify;
   display: flex;
   flex-direction: column;
-  margin-left: 15px;
+  margin-left: 0.9375rem;
 }
 
 .title-list-movie {
-  margin-bottom: 5px;
+  color: #e48e8e;
+  text-decoration: none;
+  cursor: pointer;
+  margin-bottom: 0.3125rem;
   font-weight: bold;
+  transition: color 0.2s linear;
 }
 
+.title-list-movie:hover {
+  color: #940000;
+}
+
+.close-modal-window {
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3.125rem;
+  font-size: 1.8em;
+  color: #797979;
+  background-color: #caa6db59;
+  transition: background 0.3s, color 0.3s linear;
+}
+
+.close-modal-window:hover {
+  color: #3f3f3f;
+  background-color: #caa6db;
+}
+
+.delete-movie {
+  position: absolute;
+  top: -0.1875rem;
+  right:-3.125rem;
+
+  width: 1.5625rem;
+  height: 1.5625rem;
+
+  background-image: url("image/icon/delete.png");
+  background-position: center;
+  background-size: cover;
+  transition: transform 0.2s linear;
+}
+
+.delete-movie:hover {
+  transform: scale(1.15);
+}
+
+
+@media (max-width: 1299px) {
+  body {
+    font-size: 12px;
+  }
+}

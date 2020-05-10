@@ -27,12 +27,7 @@ class KeyBoard {
   }
 
   addKeysListener() {
-
-    this.input.addEventListener('blur', () => {
-      if (this.keyboardActive) {
-        this.input.focus();
-      }
-    });
+    window.addEventListener('resize', () => this.reziseWindow());
     this.wrapper.addEventListener('click', (e) => this.mouseClick(e));
     this.leftShift.addEventListener('mousedown', () => this.caseUpper());
     this.rightShift.addEventListener('mousedown', () => this.caseUpper());
@@ -60,6 +55,19 @@ class KeyBoard {
         this.wrapper.style.display = 'block';
       }
     });
+    this.input.addEventListener('blur', () => {
+      if (this.keyboardActive) {
+        this.input.focus();
+      }
+    });
+  }
+
+  reziseWindow() {
+    const disableKeyboardWidth = 1110;
+    if (document.documentElement.clientWidth < disableKeyboardWidth) {
+      this.keyboardActive = false;
+      this.wrapper.style.display = 'none';
+    }
   }
 
   addVirtualKeys() {
@@ -114,7 +122,7 @@ class KeyBoard {
 
   mouseClick(e) {
     const target = e.target.closest('.key');
-    if (target === null) return;
+    if (!target) return;
     const targetKey = target.className.split(' ')[1];
     this.checkKey(targetKey[0].toUpperCase() + targetKey.slice(1));
     target.classList.add('active');
@@ -152,7 +160,7 @@ class KeyBoard {
 
   deleteSymbolPrev() {
     const cursorNum = this.input.selectionStart;
-    if (cursorNum === 0) return;
+    if (!cursorNum) return;
     const string = this.input.value;
     this.input.value = string.slice(0, cursorNum - 1) + string.slice(cursorNum, string.length);
     this.input.selectionStart = cursorNum - 1;

@@ -1,4 +1,4 @@
-var swiper = new Swiper('.swiper-container', {
+const swiper = new Swiper('.swiper-container', {
   speed: 900,
   navigation: {
     nextEl: '.swiper-button-next',
@@ -6,27 +6,20 @@ var swiper = new Swiper('.swiper-container', {
   },
 
   breakpoints: {
-    320: {
+    720: {
       slidesPerGroup: 1,
       slidesPerView: 1,
-      spaceBetween: 15,
+      spaceBetween: 10,
     },
-    450: {
+    1110: {
       slidesPerGroup: 2,
       slidesPerView: 2,
       spaceBetween: 20,
     },
-    620: {
+    1330: {
       slidesPerGroup: 3,
       slidesPerView: 3,
       spaceBetween: 20,
     },
-    800: {
-      slidesPerGroup: 3,
-      slidesPerView: 4,
-      spaceBetween: 20,
-    },
   },
 });
-
-

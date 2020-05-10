@@ -83,21 +83,7 @@ class MainApp {
   }
 
   async getDataMovie() {
-    if (this.data.Response === 'False') {
-      if (this.page === 1) {
-        document.querySelector('.search-result').innerHTML = `No results found for "<b>${this.currentMovie}</b>"`;
-        document.querySelector('.search-result-found').innerHTML = 'Found 0 results';
-      }
-      setTimeout(() => {
-        this.loader.style.display = 'none';
-      }, 500);
-      return;
-    }
-    if (search.clear) {
-      swiper.slideTo(1, 1);
-      this.swiperWrapper.innerHTML = '';
-      search.clear = false;
-    }
+    this.checkAvailable();
     this.arrRate = [];
     this.dataMovie = [];
     for (let z = 0; z < this.data.Search.length; z += 1) {
@@ -110,31 +96,41 @@ class MainApp {
     this.createCardMovie();
   }
 
-  createCardMovie() {
-    const posterUnavailable = 'N/A';
-    for (let i = 0; i < this.data.Search.length; i += 1) {
-      const newSlide = this.sliderCopy.cloneNode(true);
-      newSlide.querySelector('.movie-title').textContent = this.data.Search[i].Title;
-      newSlide.querySelector('.movie-title').href = `https://www.imdb.com/title/${this.data.Search[i].imdbID}/videogallery/`;
-      newSlide.querySelector('.movie-image').href = `https://www.imdb.com/title/${this.data.Search[i].imdbID}/videogallery/`;
-      newSlide.querySelector('.movie-year').textContent = `${this.data.Search[i].Year}, ${this.dataMovie[i].Country}`;
-      newSlide.querySelector('.movie-rate').innerHTML = `<b>${this.dataMovie[i].imdbRating}</b>`;
-
-      newSlide.querySelector('.name').textContent = `${this.data.Search[i].Title} (${this.data.Search[i].Year})`;
-      newSlide.querySelector('.name').href = `https://www.imdb.com/title/${this.data.Search[i].imdbID}/?ref_=fn_al_tt_1`;
-      newSlide.querySelector('.description').innerHTML = `<b>Plot:</b> ${this.dataMovie[i].Plot}`;
-      newSlide.querySelector('.genre').innerHTML = `<b>Genre:</b> ${this.dataMovie[i].Genre}`;
-      newSlide.querySelector('.type-movie').innerHTML = this.dataMovie[i].Type;
-      newSlide.querySelector('.run-time').innerHTML = `<b>Runtime:</b> ${this.dataMovie[i].Runtime}`;
-      newSlide.querySelector('.rate').innerHTML = `<b>Rated:</b> ${this.dataMovie[i].Rated}`;
-      newSlide.querySelector('.actors').innerHTML = `<b>Actors:</b> ${this.dataMovie[i].Actors}`;
-      newSlide.dataset.id = this.data.Search[i].imdbID;
-      this.swiperWrapper.append(newSlide);
-      if (this.data.Search[i].Poster !== posterUnavailable) {
-        newSlide.querySelector('.movie-image').style.backgroundImage = `url(${this.data.Search[i].Poster})`;
-        this.checkMovie(newSlide);
+  checkAvailable() {
+    if (this.data.Response === 'False') {
+      if (this.page === 1) {
+        document.querySelector('.search-result').innerHTML = `No results found for "<b>${this.currentMovie}</b>"`;
+        if (this.data.Error === 'Too many results.') {
+          document.querySelector('.search-result').innerHTML = 'Too many results.';
+        }
+        document.querySelector('.search-result-found').innerHTML = 'Found 0 results';
       }
+      setTimeout(() => {
+        this.loader.style.display = 'none';
+      }, 500);
+      return;
     }
+    if (search.clear) {
+      swiper.slideTo(1, 1);
+      this.swiperWrapper.innerHTML = '';
+      search.clear = false;
+    }
+  }
+
+  createCardMovie() {
+    for (let i = 0; i < this.data.Search.length; i += 1) {
+      this.newSlide = this.sliderCopy.cloneNode(true);
+      this.newSlide.querySelector('.movie-title').textContent = this.data.Search[i].Title;
+      this.newSlide.querySelector('.movie-title').href = `https://www.imdb.com/title/${this.data.Search[i].imdbID}/videogallery/`;
+      this.newSlide.querySelector('.movie-image').href = `https://www.imdb.com/title/${this.data.Search[i].imdbID}/videogallery/`;
+      this.newSlide.querySelector('.movie-year').textContent = `${this.data.Search[i].Year}, ${this.dataMovie[i].Country}`;
+      this.newSlide.querySelector('.movie-rate').innerHTML = `<b>${this.dataMovie[i].imdbRating}</b>`;
+      this.createInfoForMovie(i);
+    }
+    this.resetSlider();
+  }
+
+  resetSlider() {
     document.querySelector('.search-result').innerHTML = `Results for "<b>${this.currentMovie}</b>"`;
     document.querySelector('.search-result-found').innerHTML = `Found ${this.data.totalResults} results`;
     swiper.update();
@@ -143,22 +139,39 @@ class MainApp {
     }, 500);
   }
 
-  checkMovie(slide) {
-    listMovie.myLoveMovie.forEach((item) => {
-      if (item.id === slide.dataset.id) {
-        slide.querySelector('.love-movie-button').style.opacity = '1';
-        slide.dataset.favorite = 'true';
-      }
-    })
+  createInfoForMovie(i) {
+    const posterUnavailable = 'N/A';
+    this.newSlide.querySelector('.name').textContent = `${this.data.Search[i].Title} (${this.data.Search[i].Year})`;
+    this.newSlide.querySelector('.name').href = `https://www.imdb.com/title/${this.data.Search[i].imdbID}/?ref_=fn_al_tt_1`;
+    this.newSlide.querySelector('.description').innerHTML = `<b>Plot:</b> ${this.dataMovie[i].Plot}`;
+    this.newSlide.querySelector('.genre').innerHTML = `<b>Genre:</b> ${this.dataMovie[i].Genre}`;
+    this.newSlide.querySelector('.type-movie').innerHTML = this.dataMovie[i].Type;
+    this.newSlide.querySelector('.run-time').innerHTML = `<b>Runtime:</b> ${this.dataMovie[i].Runtime}`;
+    this.newSlide.querySelector('.rate').innerHTML = `<b>Rated:</b> ${this.dataMovie[i].Rated}`;
+    this.newSlide.querySelector('.actors').innerHTML = `<b>Actors:</b> ${this.dataMovie[i].Actors}`;
+    this.newSlide.dataset.id = this.data.Search[i].imdbID;
+    this.swiperWrapper.append(this.newSlide);
+    if (this.data.Search[i].Poster !== posterUnavailable) {
+      this.newSlide.querySelector('.movie-image').style.backgroundImage = `url(${this.data.Search[i].Poster})`;
+      this.checkMovie();
+    }
+  }
 
-    listMovie.myWillWatch.forEach((item) => {
-      if (item.id === slide.dataset.id) {
-        slide.querySelector('.will-watch').style.opacity = '0.8';
-        slide.querySelector('.will-watch-confrim').style.backgroundImage = 'url("image/icon/v.png")';
-        slide.querySelector('.will-watch-confrim').style.opacity = '1';
-        slide.dataset.willLater = 'true';
+  checkMovie() {
+    listMovie.myLoveMovie.forEach((item) => {
+      if (item.id === this.newSlide.dataset.id) {
+        this.newSlide.querySelector('.love-movie-button').style.opacity = '1';
+        this.newSlide.dataset.favorite = 'true';
       }
-    })
+    });
+    listMovie.myWillWatch.forEach((item) => {
+      if (item.id === this.newSlide.dataset.id) {
+        this.newSlide.querySelector('.will-watch').style.opacity = '0.8';
+        this.newSlide.querySelector('.will-watch-confrim').style.backgroundImage = 'url("image/icon/v.png")';
+        this.newSlide.querySelector('.will-watch-confrim').style.opacity = '1';
+        this.newSlide.dataset.willLater = 'true';
+      }
+    });
   }
 }
 

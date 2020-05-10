@@ -1,10 +1,6 @@
 import mainApp from '../script.js';
 
 class Search {
-  constructor() {
-    this.name = '123';
-  }
-
   createDOM() {
     this.input = document.querySelector('.search');
     this.clearButton = document.querySelector('.button-clear');
@@ -12,6 +8,7 @@ class Search {
   }
 
   addEventListener() {
+    this.searchButton.addEventListener('click', () => this.enterInput());
     this.clearButton.addEventListener('click', () => {
       this.input.value = '';
     });
@@ -21,7 +18,6 @@ class Search {
     document.addEventListener('click', (event) => {
       if (event.target.closest('.enter')) this.enterInput();
     });
-    this.searchButton.addEventListener('click', () => this.enterInput());
   }
 
   async enterInput() {
@@ -32,7 +28,6 @@ class Search {
       const json = await response.json();
       mainApp.currentMovie = json.text[0].trim();
     }
-
     this.clear = true;
     mainApp.microActive = false;
     mainApp.recognition.stop();

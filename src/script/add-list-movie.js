@@ -17,7 +17,7 @@ class Addlist {
   addEventListener() {
     this.myListMovie.addEventListener('click', (event) => this.deleteMovie(event));
     this.closeModalWindow.addEventListener('click', () => this.closeMyListMovie());
-    this.swiperWrapper.addEventListener('click', (event) => this.listMovie(event));
+    this.swiperWrapper.addEventListener('click', (event) => this.checkList(event));
     this.myMovieButton.addEventListener('click', () => this.createMyMovieList());
     window.addEventListener('unload', () => {
       localStorage.setItem('myLoveMovie', JSON.stringify(this.myLoveMovie));
@@ -41,87 +41,90 @@ class Addlist {
     const targetDelete = event.target.closest('.list-movie-item');
     if (this.activeTab) {
       this.myWillWatch.forEach((item, index) => {
-        this.swiperWrapper.querySelectorAll('.swiper-slide').forEach((slide) => {
-          if (item.id === slide.dataset.id) {
-            slide.querySelector('.will-watch').style.opacity = '0.3';
-            slide.querySelector('.will-watch-confrim').style.backgroundImage = 'url("image/icon/time.png")';
-            slide.querySelector('.will-watch-confrim').style.opacity = '0.3';
-            slide.dataset.willLater = 'false';
-          }
-        });
         if (item.id === targetDelete.dataset.idMovie) {
           this.myWillWatch.splice(index, 1);
+        }
+      });
+      this.swiperWrapper.querySelectorAll('.swiper-slide').forEach((slide) => {
+        if (targetDelete.dataset.idMovie === slide.dataset.id) {
+          slide.querySelector('.will-watch').style.opacity = '0.3';
+          slide.querySelector('.will-watch-confrim').style.backgroundImage = 'url("image/icon/time.png")';
+          slide.querySelector('.will-watch-confrim').style.opacity = '0.3';
+          slide.dataset.willLater = 'false';
         }
       });
       this.createWillWatchMovie();
     } else {
       this.myLoveMovie.forEach((item, index) => {
-        this.swiperWrapper.querySelectorAll('.swiper-slide').forEach((slide) => {
-          if (item.id === slide.dataset.id) {
-            slide.querySelector('.love-movie-button').style.opacity = '0.3';
-            slide.dataset.favorite = 'false';
-          }
-        });
         if (item.id === targetDelete.dataset.idMovie) {
           this.myLoveMovie.splice(index, 1);
+        }
+      });
+      this.swiperWrapper.querySelectorAll('.swiper-slide').forEach((slide) => {
+        if (targetDelete.dataset.idMovie === slide.dataset.id) {
+          slide.querySelector('.love-movie-button').style.opacity = '0.3';
+          slide.dataset.favorite = 'false';
         }
       });
       this.createFavoriteMovie();
     }
   }
 
-  listMovie(event) {
-    const target = event.target;
-    const currentSlide = target.closest('.swiper-slide');
+  addDataArray(array) {
+    array.unshift({
+      poster: getComputedStyle(this.currentSlide.querySelector('.movie-image')).backgroundImage,
+      title: this.currentSlide.querySelector('.movie-title').textContent,
+      href: this.currentSlide.querySelector('.movie-title').href,
+      year: this.currentSlide.querySelector('.movie-year').textContent,
+      plot: this.currentSlide.querySelector('.description').innerHTML,
+      id: this.currentSlide.dataset.id,
+    });
+  }
 
-    if (target.classList.contains('love-movie-button') && (currentSlide.dataset.favorite === 'false' || !currentSlide.dataset.favorite)) {
-      target.style.opacity = '1';
-      currentSlide.dataset.favorite = 'true';
+  changeArray(array) {
+    array.forEach((item, index) => {
+      if (item.id === this.currentSlide.dataset.id) {
+        array.splice(index, 1);
+      }
+    });
+  }
 
-      this.myLoveMovie.unshift({
-        poster: getComputedStyle(currentSlide.querySelector('.movie-image')).backgroundImage,
-        title: currentSlide.querySelector('.movie-title').textContent,
-        href: currentSlide.querySelector('.movie-title').href,
-        year: currentSlide.querySelector('.movie-year').textContent,
-        plot: currentSlide.querySelector('.description').innerHTML,
-        id: currentSlide.dataset.id,
-      });
-    } else if (currentSlide.dataset.favorite === 'true' && target.classList.contains('love-movie-button')) {
-      target.style.opacity = '0.3';
-      currentSlide.dataset.favorite = 'false';
-
-      this.myLoveMovie.forEach((item, index) => {
-        if (item.id === currentSlide.dataset.id) {
-          this.myLoveMovie.splice(index, 1);
-        }
-      });
+  changeFavorite() {
+    if (this.currentSlide.dataset.favorite === 'false' || !this.currentSlide.dataset.favorite) {
+      this.target.style.opacity = '1';
+      this.currentSlide.dataset.favorite = 'true';
+      this.addDataArray(this.myLoveMovie, this.currentSlide);
+    } else if (this.currentSlide.dataset.favorite === 'true' && this.target.classList.contains('love-movie-button')) {
+      this.target.style.opacity = '0.3';
+      this.currentSlide.dataset.favorite = 'false';
+      this.changeArray(this.myLoveMovie);
     }
+  }
 
-    if (target.closest('.will-watch') && (currentSlide.dataset.willLater === 'false' || !currentSlide.dataset.willLater)) {
-      target.style.opacity = '0.8';
-      currentSlide.querySelector('.will-watch-confrim').style.backgroundImage = 'url("image/icon/v.png")';
-      currentSlide.querySelector('.will-watch-confrim').style.opacity = '1';
-      currentSlide.dataset.willLater = 'true';
+  changeWillLater() {
+    if (this.currentSlide.dataset.willLater === 'false' || !this.currentSlide.dataset.willLater) {
+      this.target.style.opacity = '0.8';
+      this.currentSlide.querySelector('.will-watch-confrim').style.backgroundImage = 'url("image/icon/v.png")';
+      this.currentSlide.querySelector('.will-watch-confrim').style.opacity = '1';
+      this.currentSlide.dataset.willLater = 'true';
+      this.addDataArray(this.myWillWatch, this.currentSlide);
+    } else if (this.currentSlide.dataset.willLater === 'true' && this.target.closest('.will-watch')) {
+      this.target.style.opacity = '0.3';
+      this.currentSlide.querySelector('.will-watch-confrim').style.backgroundImage = 'url("image/icon/time.png")';
+      this.currentSlide.querySelector('.will-watch-confrim').style.opacity = '0.3';
+      this.currentSlide.dataset.willLater = 'false';
+      this.changeArray(this.myWillWatch);
+    }
+  }
 
-      this.myWillWatch.unshift({
-        poster: getComputedStyle(currentSlide.querySelector('.movie-image')).backgroundImage,
-        title: currentSlide.querySelector('.movie-title').textContent,
-        href: currentSlide.querySelector('.movie-title').href,
-        year: currentSlide.querySelector('.movie-year').textContent,
-        plot: currentSlide.querySelector('.description').innerHTML,
-        id: currentSlide.dataset.id,
-      });
-    } else if (currentSlide.dataset.willLater === 'true' && target.closest('.will-watch')) {
-      target.style.opacity = '0.3';
-      currentSlide.querySelector('.will-watch-confrim').style.backgroundImage = 'url("image/icon/time.png")';
-      currentSlide.querySelector('.will-watch-confrim').style.opacity = '0.3';
-      currentSlide.dataset.willLater = 'false';
-
-      this.myWillWatch.forEach((item, index) => {
-        if (item.id === currentSlide.dataset.id) {
-          this.myWillWatch.splice(index, 1);
-        }
-      });
+  checkList(event) {
+    this.target = event.target;
+    this.currentSlide = this.target.closest('.swiper-slide');
+    if (this.target.classList.contains('love-movie-button')) {
+      this.changeFavorite();
+    }
+    if (this.target.closest('.will-watch')) {
+      this.changeWillLater();
     }
   }
 
@@ -137,16 +140,7 @@ class Addlist {
     document.querySelector('.watch-later').classList.add('active-tab');
     document.querySelector('.list-movie').innerHTML = '';
     this.activeTab = true;
-    for (let i = 0; i < this.myWillWatch.length; i += 1) {
-      const newMovie = this.listMovieCopy.cloneNode(true);
-      newMovie.dataset.idMovie = this.myWillWatch[i].id;
-      newMovie.querySelector('.poster-list-movie').style.backgroundImage = this.myWillWatch[i].poster;
-      newMovie.querySelector('.title-list-movie').textContent = `${this.myWillWatch[i].title} ${this.myWillWatch[i].year}`;
-      newMovie.querySelector('.title-list-movie').href = this.myWillWatch[i].href;
-      newMovie.querySelector('.poster-list-movie').href = this.myWillWatch[i].href;
-      newMovie.querySelector('.plot-list-movie').innerHTML = this.myWillWatch[i].plot;
-      document.querySelector('.list-movie').prepend(newMovie);
-    }
+    this.createCardListMovie(this.myWillWatch);
   }
 
   createFavoriteMovie() {
@@ -154,14 +148,19 @@ class Addlist {
     document.querySelector('.favorite-movie').classList.add('active-tab');
     document.querySelector('.list-movie').innerHTML = '';
     this.activeTab = false;
-    for (let i = 0; i < this.myLoveMovie.length; i += 1) {
+    this.createCardListMovie(this.myLoveMovie);
+  }
+
+  createCardListMovie(listArray) {
+    this.listArray = listArray;
+    for (let i = 0; i < this.listArray.length; i += 1) {
       const newMovie = this.listMovieCopy.cloneNode(true);
-      newMovie.dataset.idMovie = this.myLoveMovie[i].id;
-      newMovie.querySelector('.poster-list-movie').style.backgroundImage = this.myLoveMovie[i].poster;
-      newMovie.querySelector('.title-list-movie').textContent = `${this.myLoveMovie[i].title} ${this.myLoveMovie[i].year}`;
-      newMovie.querySelector('.title-list-movie').href = this.myLoveMovie[i].href;
-      newMovie.querySelector('.poster-list-movie').href = this.myLoveMovie[i].href;
-      newMovie.querySelector('.plot-list-movie').innerHTML = this.myLoveMovie[i].plot;
+      newMovie.dataset.idMovie = this.listArray[i].id;
+      newMovie.querySelector('.poster-list-movie').style.backgroundImage = this.listArray[i].poster;
+      newMovie.querySelector('.title-list-movie').textContent = `${this.listArray[i].title} ${this.listArray[i].year}`;
+      newMovie.querySelector('.title-list-movie').href = this.listArray[i].href;
+      newMovie.querySelector('.poster-list-movie').href = this.listArray[i].href;
+      newMovie.querySelector('.plot-list-movie').innerHTML = this.listArray[i].plot;
       document.querySelector('.list-movie').prepend(newMovie);
     }
   }

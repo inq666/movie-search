@@ -1,6 +1,6 @@
-import search from './script/search.js';
-import keyboard from './keyboard/keyboard.js';
-import listMovie from './script/add-list-movie.js';
+import search from './script/search';
+import keyboard from './keyboard/keyboard';
+import listMovie from './script/add-list-movie';
 
 class MainApp {
   constructor() {
@@ -84,6 +84,10 @@ class MainApp {
 
   async getDataMovie() {
     this.checkAvailable();
+    if (this.finish) {
+      this.finish = false;
+      return;
+    }
     this.arrRate = [];
     this.dataMovie = [];
     for (let z = 0; z < this.data.Search.length; z += 1) {
@@ -108,7 +112,7 @@ class MainApp {
       setTimeout(() => {
         this.loader.style.display = 'none';
       }, 500);
-      return;
+      this.finish = true;
     }
     if (search.clear) {
       swiper.slideTo(1, 1);
@@ -118,6 +122,7 @@ class MainApp {
   }
 
   createCardMovie() {
+    if (this.data.Response === 'False') return;
     for (let i = 0; i < this.data.Search.length; i += 1) {
       this.newSlide = this.sliderCopy.cloneNode(true);
       this.newSlide.querySelector('.movie-title').textContent = this.data.Search[i].Title;

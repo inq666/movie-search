@@ -58,6 +58,7 @@
 }
 .swiper-slide {
   flex-shrink: 0;
+  width: 285px !important;
   height: 100%;
   position: relative;
   transition-property: transform;
@@ -553,16 +554,4 @@ button.swiper-pagination-bullet {
   z-index: 0;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-}
-
-@media (max-width: 360px) {
-.swiper-button-prev,
-.swiper-container-rtl .swiper-button-next {
-  left: -10px !important;
-}
-
-.swiper-button-next,
-.swiper-container-rtl .swiper-button-prev {
-  right: -10px !important;
-}
 }

@@ -53,6 +53,7 @@ button {
 /*header*/
 .header {
   height: 40px;
+
   text-align: center;
 }
 
@@ -246,7 +247,7 @@ button {
 
 /*slide with movie*/
 .search-result {
-  padding: 0px 40px;
+  padding: 0 40px;
   overflow: hidden;
 
   font-size: 2em;
@@ -520,10 +521,11 @@ button {
 .footer {
   position: fixed;
   bottom: 0;
-height: 50px;
+
   display: flex;
   justify-content: space-around;
   width: 100%;
+  height: 50px;
 }
 
 .footer a {
@@ -962,10 +964,11 @@ height: 50px;
   }
 
   .search {
-    padding-right: 95px;
-    font-size: 15px;
     width: 585px;
     margin-bottom: 60px;
+    padding-right: 95px;
+
+    font-size: 15px;
   }
 
   .search-result {
@@ -975,6 +978,7 @@ height: 50px;
   .button-my-movie {
     top: 80px;
     right: 0;
+
     width: 100%;
   }
 

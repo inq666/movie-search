@@ -58,7 +58,7 @@ module.exports = (env, options) => {
     },
 
     plugins: [
-      new FaviconsWebpackPlugin('./src/images/icons/site.png'),
+      new FaviconsWebpackPlugin('./src/image/icon/site.png'),
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html'

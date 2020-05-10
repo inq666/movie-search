@@ -1,6 +1,6 @@
-import search from './script/search';
-import keyboard from './keyboard/keyboard';
-import listMovie from './script/add-list-movie';
+import search from './script/search.js';
+import keyboard from './keyboard/keyboard.js';
+import listMovie from './script/add-list-movie.js';
 
 class MainApp {
   constructor() {

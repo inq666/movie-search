@@ -153,21 +153,21 @@ class Addlist {
 
   createCardListMovie(listArray) {
     this.listArray = listArray;
-    for (let i = 0; i < this.listArray.length; i += 1) {
+    this.listArray.forEach((item) => {
       const newMovie = this.listMovieCopy.cloneNode(true);
-      newMovie.dataset.idMovie = this.listArray[i].id;
-      newMovie.querySelector('.poster-list-movie').style.backgroundImage = this.listArray[i].poster;
-      newMovie.querySelector('.title-list-movie').textContent = `${this.listArray[i].title} ${this.listArray[i].year}`;
-      newMovie.querySelector('.title-list-movie').href = this.listArray[i].href;
-      newMovie.querySelector('.poster-list-movie').href = this.listArray[i].href;
-      newMovie.querySelector('.plot-list-movie').innerHTML = this.listArray[i].plot;
+      newMovie.dataset.idMovie = item.id;
+      newMovie.querySelector('.poster-list-movie').style.backgroundImage = item.poster;
+      newMovie.querySelector('.title-list-movie').textContent = `${item.title} ${item.year}`;
+      newMovie.querySelector('.title-list-movie').href = item.href;
+      newMovie.querySelector('.poster-list-movie').href = item.href;
+      newMovie.querySelector('.plot-list-movie').innerHTML = item.plot;
       document.querySelector('.list-movie').prepend(newMovie);
-    }
+    });
   }
 }
 
 const addList = new Addlist();
 addList.createDOM();
-addList.addEventListener();
+addList.addEventListener();ща
 
 export default addList;

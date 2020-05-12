@@ -19,12 +19,6 @@
     "css",
     "html"
   ],
-  "jest": {
-    "automock": false,
-    "setupFiles": [
-      "./src/script/test/translate-api.js"
-    ]
-  },
   "author": "Yahor Neverouski",
   "license": "ISC",
   "bugs": {

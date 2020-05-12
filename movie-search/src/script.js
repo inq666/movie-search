@@ -8,7 +8,7 @@ class MainApp {
     this.numSlide = 1;
     this.microActive = false;
     this.currentMovie = 'naruto';
-    window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
+    window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     this.recognition = new window.SpeechRecognition();
     this.recognition.lang = 'en-US';
   }
@@ -64,7 +64,7 @@ class MainApp {
 
   countSlides(event) {
     if (event.target.closest('.swiper-container') || event.target.classList.contains('swiper-button-next')) {
-      if (!(swiper.activeIndex % 3) && swiper.activeIndex > this.numSlide) {
+      if (swiper.activeIndex > this.numSlide) {
         this.page += 1;
         this.numSlide = swiper.activeIndex;
         this.getMovie();
@@ -76,7 +76,7 @@ class MainApp {
     if (this.page === 1) {
       this.loader.style.display = 'block';
     }
-    this.url = `https://www.omdbapi.com/?s=${this.currentMovie}&page=${this.page}&apikey=fb708ae0`;
+    this.url = `http://www.omdbapi.com/?s=${this.currentMovie}&type=movie&page=${this.page}&apikey=fcfd9227`;
     const res = await fetch(this.url);
     this.data = await res.json();
     this.getDataMovie();
@@ -91,7 +91,7 @@ class MainApp {
     this.arrRate = [];
     this.dataMovie = [];
     for (let z = 0; z < this.data.Search.length; z += 1) {
-      this.arrRate.push(`http://www.omdbapi.com/?i=${this.data.Search[z].imdbID}&apikey=fb708ae0`);
+      this.arrRate.push(`http://www.omdbapi.com/?i=${this.data.Search[z].imdbID}&apikey=fcfd9227`);
     }
     const requests = this.arrRate.map((url) => fetch(url));
     await Promise.all(requests)
@@ -126,8 +126,8 @@ class MainApp {
     for (let i = 0; i < this.data.Search.length; i += 1) {
       this.newSlide = this.sliderCopy.cloneNode(true);
       this.newSlide.querySelector('.movie-title').textContent = this.data.Search[i].Title;
-      this.newSlide.querySelector('.movie-title').href = `https://www.imdb.com/title/${this.data.Search[i].imdbID}/videogallery/`;
-      this.newSlide.querySelector('.movie-image').href = `https://www.imdb.com/title/${this.data.Search[i].imdbID}/videogallery/`;
+      this.newSlide.querySelector('.movie-title').href = `http://www.imdb.com/title/${this.data.Search[i].imdbID}/videogallery/`;
+      this.newSlide.querySelector('.movie-image').href = `http://www.imdb.com/title/${this.data.Search[i].imdbID}/videogallery/`;
       this.newSlide.querySelector('.movie-year').textContent = `${this.data.Search[i].Year}, ${this.dataMovie[i].Country}`;
       this.newSlide.querySelector('.movie-rate').innerHTML = `<b>${this.dataMovie[i].imdbRating}</b>`;
       this.createInfoForMovie(i);
@@ -147,7 +147,7 @@ class MainApp {
   createInfoForMovie(i) {
     const posterUnavailable = 'N/A';
     this.newSlide.querySelector('.name').textContent = `${this.data.Search[i].Title} (${this.data.Search[i].Year})`;
-    this.newSlide.querySelector('.name').href = `https://www.imdb.com/title/${this.data.Search[i].imdbID}/?ref_=fn_al_tt_1`;
+    this.newSlide.querySelector('.name').href = `http://www.imdb.com/title/${this.data.Search[i].imdbID}/?ref_=fn_al_tt_1`;
     this.newSlide.querySelector('.description').innerHTML = `<b>Plot:</b> ${this.dataMovie[i].Plot}`;
     this.newSlide.querySelector('.genre').innerHTML = `<b>Genre:</b> ${this.dataMovie[i].Genre}`;
     this.newSlide.querySelector('.type-movie').innerHTML = this.dataMovie[i].Type;

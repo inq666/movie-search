@@ -28,7 +28,10 @@ class Search {
       const json = await response.json();
       mainApp.currentMovie = json.text[0].trim();
     }
+    mainApp.numSlide = 0;
     this.clear = true;
+    document.querySelector('.button-microphone').style.opacity = '1';
+    mainApp.speakButton.style.opacity = '0';
     mainApp.microActive = false;
     mainApp.recognition.stop();
     mainApp.page = 1;

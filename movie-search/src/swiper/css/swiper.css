@@ -555,3 +555,14 @@ button.swiper-pagination-bullet {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
+
+@media (max-width: 440px) {
+  .swiper-button-next {
+    right: -10px !important;
+  }
+
+  .swiper-button-prev {
+left: -10px !important;
+  }
+
+}

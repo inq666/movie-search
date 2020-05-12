@@ -12,7 +12,7 @@ module.exports = (env, options) => {
     mode: isProduction ? 'production' : 'development',
     devtool: isProduction ? 'none' : 'source-map',
     watch: !isProduction,
-    entry: ['./src/script.js', './src/style.css'],
+    entry: ['./src/script.js', './src/style.css', './src/swiper/css/swiper.css'],
     output: {
       filename: 'main.js',
       path: path.join(__dirname, '/dist'),
@@ -58,7 +58,6 @@ module.exports = (env, options) => {
     },
 
     plugins: [
-      new FaviconsWebpackPlugin('./src/image/icon/site.png'),
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html'

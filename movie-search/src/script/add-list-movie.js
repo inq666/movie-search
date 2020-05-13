@@ -45,7 +45,8 @@ class Addlist {
           this.myWillWatch.splice(index, 1);
         }
       });
-      this.swiperWrapper.querySelectorAll('.swiper-slide').forEach((slide) => {
+      this.swiperWrapper.querySelectorAll('.swiper-slide').forEach((item) => {
+        const slide = item;
         if (targetDelete.dataset.idMovie === slide.dataset.id) {
           slide.querySelector('.will-watch').style.opacity = '0.3';
           slide.querySelector('.will-watch-confrim').style.backgroundImage = 'url("image/icon/time.png")';
@@ -60,7 +61,8 @@ class Addlist {
           this.myLoveMovie.splice(index, 1);
         }
       });
-      this.swiperWrapper.querySelectorAll('.swiper-slide').forEach((slide) => {
+      this.swiperWrapper.querySelectorAll('.swiper-slide').forEach((item) => {
+        const slide = item;
         if (targetDelete.dataset.idMovie === slide.dataset.id) {
           slide.querySelector('.love-movie-button').style.opacity = '0.3';
           slide.dataset.favorite = 'false';
@@ -168,6 +170,6 @@ class Addlist {
 
 const addList = new Addlist();
 addList.createDOM();
-addList.addEventListener();ща
+addList.addEventListener();
 
 export default addList;

@@ -1,4 +1,4 @@
-import keys from './src/data.js';
+import keys from './src/data';
 
 class KeyBoard {
   constructor() {

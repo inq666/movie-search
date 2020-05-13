@@ -1,4 +1,4 @@
-import mainApp from '../script.js';
+import mainApp from '../script';
 
 class Search {
   createDOM() {

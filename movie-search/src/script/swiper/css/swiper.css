@@ -198,7 +198,7 @@
 }
 .swiper-button-prev:after,
 .swiper-container-rtl .swiper-button-next:after {
-  background-image: url("../../image/icon/arrow-left.png");
+  background-image: url("../../../image/icon/arrow-left.png");
   content: '';
 }
 .swiper-button-next,
@@ -208,7 +208,7 @@
 }
 .swiper-button-next:after,
 .swiper-container-rtl .swiper-button-prev:after {
-  background-image: url("../../image/icon/arrow-right.png");
+  background-image: url("../../../image/icon/arrow-right.png");
   content: '';
 }
 .swiper-button-prev.swiper-button-white,

@@ -1,4 +1,4 @@
-import mainApp from '../script';
+import mainapp from './mainapp';
 
 class Search {
   createDOM() {
@@ -21,21 +21,21 @@ class Search {
   }
 
   async enterInput() {
-    mainApp.currentMovie = this.input.value;
-    if (!mainApp.currentMovie) return;
-    if (/[а-я]/i.test(mainApp.currentMovie)) {
-      const response = await fetch(`https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20200422T174219Z.a6338781f9423192.28f2896df71fd9376630fd91e64a03518d511f99&text= ${mainApp.currentMovie} &lang=ru-en`);
+    mainapp.currentMovie = this.input.value;
+    if (!mainapp.currentMovie) return;
+    if (/[а-я]/i.test(mainapp.currentMovie)) {
+      const response = await fetch(`https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20200422T174219Z.a6338781f9423192.28f2896df71fd9376630fd91e64a03518d511f99&text= ${mainapp.currentMovie} &lang=ru-en`);
       const json = await response.json();
-      mainApp.currentMovie = json.text[0].trim();
+      mainapp.currentMovie = json.text[0].trim();
     }
-    mainApp.numSlide = 0;
-    this.clear = true;
     document.querySelector('.button-microphone').style.opacity = '1';
-    mainApp.speakButton.style.opacity = '0';
-    mainApp.microActive = false;
-    mainApp.recognition.stop();
-    mainApp.page = 1;
-    mainApp.getMovie();
+    mainapp.numSlide = 0;
+    mainapp.clear = true;
+    mainapp.speakButton.style.opacity = '0';
+    mainapp.microActive = false;
+    mainapp.recognition.stop();
+    mainapp.page = 1;
+    mainapp.getMovie();
   }
 }
 

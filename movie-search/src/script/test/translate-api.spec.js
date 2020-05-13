@@ -19,4 +19,3 @@ describe('Api: translate', () => {
     expect(resolve).toMatch(/never give up/);
   });
 });
-

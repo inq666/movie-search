@@ -1,32 +1,36 @@
 const removeEqualId = require('./removeEqualId');
 
+const arrayWithMovieId = [
+  {
+    id: 'hello',
+  },
+  {
+    id: 'tb5155151',
+  },
+  {
+    id: 1111111111,
+  },
+  {
+    id: 'tb2326665',
+  },
+  {
+    id: null,
+  },
+];
+
 test('funtion should return true if of object and id of currentMovieId are equal, else false ', () => {
-  const arrayWithMovieId = [
-    {
-      id: 'tb2131414',
-    },
-    {
-      id: 'tb5155151',
-    },
-    {
-      id: 'tb1015515',
-    },
-    {
-      id: 'tb1651515',
-    },
-    {
-      id: 'tb5155151',
-    },
-  ];
   const expectedArray = [
     {
-      id: 'tb2131414',
+      id: 'hello',
     },
     {
-      id: 'tb1015515',
+      id: 1111111111,
     },
     {
-      id: 'tb1651515',
+      id: 'tb2326665',
+    },
+    {
+      id: null,
     },
   ];
   const currentMovieId = {
@@ -36,38 +40,21 @@ test('funtion should return true if of object and id of currentMovieId are equal
 });
 
 test('funtion should return true if of object and id of currentMovieId are equal, else false ', () => {
-  const arrayWithMovieId = [
-    {
-      id: 'tb5151511',
-    },
-    {
-      id: 'tb1551515',
-    },
-    {
-      id: 'tb15515115',
-    },
-    {
-      id: 'tb1155110',
-    },
-    {
-      id: '000000000',
-    },
-  ];
   const expectedArray = [
     {
-      id: 'tb5151511',
+      id: 'hello',
     },
     {
-      id: 'tb1551515',
+      id: 'tb5155151',
     },
     {
-      id: 'tb15515115',
+      id: 1111111111,
     },
     {
-      id: 'tb1155110',
+      id: 'tb2326665',
     },
     {
-      id: '000000000',
+      id: null,
     },
   ];
 
@@ -78,39 +65,21 @@ test('funtion should return true if of object and id of currentMovieId are equal
 });
 
 test('funtion should return true if of object and id of currentMovieId are equal, else false ', () => {
-
-   const arrayWithMovieId = [
-    {
-      id: 'hello',
-    },
-    {
-      id: 'cat',
-    },
-    {
-      id: 'dog',
-    },
-    {
-      id: 'car',
-    },
-    {
-      id: 'home',
-    },
-  ];
   const expectedArray = [
     {
       id: 'hello',
     },
     {
-      id: 'cat',
+      id: 'tb5155151',
     },
     {
-      id: 'dog',
+      id: 1111111111,
     },
     {
-      id: 'car',
+      id: 'tb2326665',
     },
     {
-      id: 'home',
+      id: null,
     },
   ];
   const currentMovieId = {
@@ -120,159 +89,88 @@ test('funtion should return true if of object and id of currentMovieId are equal
 });
 
 test('funtion should return true if of object and id of currentMovieId are equal, else false ', () => {
-  const arrayWithMovieId = [
-    {
-      id: 'tb2131414',
-    },
-    {
-      id: 'qqqqqqqqq',
-    },
-    {
-      id: '111111111',
-    },
-    {
-      id: 100,
-    },
-    {
-      id: 9999999999,
-    },
-  ];
   const expectedArray = [
     {
-      id: 'qqqqqqqqq',
-    },
-    {
-      id: '111111111',
-    },
-    {
-      id: 100,
-    },
-    {
-      id: 9999999999,
-    },
-  ];
-  const currentMovieId = {
-    id: 'tb2131414',
-  };
-  expect(removeEqualId(arrayWithMovieId, currentMovieId)).toEqual(expect.arrayContaining(expectedArray));
-});
-
-test('funtion should return true if of object and id of currentMovieId are equal, else false ', () => {
-  const arrayWithMovieId = [
-    {
-      id: 'tb2131414',
+      id: 'hello',
     },
     {
       id: 'tb5155151',
     },
     {
-      id: 'tb1015515',
+      id: 1111111111,
     },
     {
-      id: 'tb1651515',
-    },
-    {
-      id: null,
+      id: 'tb2326665',
     },
   ];
+  const currentMovieId = {
+    id: null,
+  };
+  expect(removeEqualId(arrayWithMovieId, currentMovieId)).toEqual(expect.arrayContaining(expectedArray));
+});
+
+test('funtion should return true if of object and id of currentMovieId are equal, else false ', () => {
   const expectedArray = [
     {
-      id: 'tb2131414',
+      id: 'hello',
     },
     {
-      id: 'tb1015515',
+      id: 'tb5155151',
     },
     {
-      id: 'tb1651515',
+      id: 1111111111,
     },
     {
       id: null,
     },
   ];
   const currentMovieId = {
-    id: 'tb5155151',
+    id: 'tb2326665',
   };
   expect(removeEqualId(arrayWithMovieId, currentMovieId)).toEqual(expect.arrayContaining(expectedArray));
 });
 
 test('funtion should return true if of object and id of currentMovieId are equal, else false ', () => {
-  const arrayWithMovieId = [
-    {
-      id: 'tb21tb2131414tb2131414tb2131414tb2131414tb2131414tb2131414tb213141431414',
-    },
-    {
-      id: 'tb1015515tb1015515tb1015515tb1015515',
-    },
-    {
-      id: 'tb10tb1651515tb1651515tb1651515tb165151515515',
-    },
-    {
-      id: 'tb16515tb5155151tb5155151tb5155151tb515515115',
-    },
-    {
-      id: 'tb5155151',
-    },
-  ];
   const expectedArray = [
     {
-      id: 'tb21tb2131414tb2131414tb2131414tb2131414tb2131414tb2131414tb213141431414',
-    },
-    {
-      id: 'tb1015515tb1015515tb1015515tb1015515',
-    },
-    {
-      id: 'tb10tb1651515tb1651515tb1651515tb165151515515',
-    },
-    {
-      id: 'tb16515tb5155151tb5155151tb5155151tb515515115',
+      id: 'hello',
     },
     {
       id: 'tb5155151',
+    },
+    {
+      id: 'tb2326665',
+    },
+    {
+      id: null,
     },
   ];
   const currentMovieId = {
-    id: 'tb51551511',
+    id: 1111111111,
   };
   expect(removeEqualId(arrayWithMovieId, currentMovieId)).toEqual(expect.arrayContaining(expectedArray));
 });
 
 test('funtion should return true if of object and id of currentMovieId are equal, else false ', () => {
-  const arrayWithMovieId = [
-    {
-      id: 'tb2131414',
-    },
-    {
-      id: 'tb5155151',
-    },
-    {
-      id: 'tb1015515',
-    },
-    {
-      id: 'tb1651515',
-    },
-    {
-      id: 'tb5155151',
-    },
-  ];
   const expectedArray = [
     {
-      id: 'tb2131414',
+      id: 'hello',
     },
     {
       id: 'tb5155151',
     },
     {
-      id: 'tb1015515',
+      id: 1111111111,
     },
     {
-      id: 'tb1651515',
+      id: 'tb2326665',
     },
     {
-      id: 'tb5155151',
+      id: null,
     },
   ];
   const currentMovieId = {
-    id: 111111111111111111111,
+    id: 'undefined',
   };
   expect(removeEqualId(arrayWithMovieId, currentMovieId)).toEqual(expect.arrayContaining(expectedArray));
 });

@@ -1,6 +1,6 @@
 
 import addlistmovie from './add-list-movie';
-import swiper from './swiper/js/swiper';
+import swiper from './swiper/swiper';
 
 class MainApp {
   constructor() {

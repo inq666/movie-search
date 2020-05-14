@@ -1,0 +1,254 @@
+.button-clear {
+  top: 28px;
+  left: -5px;
+
+  width: 45px;
+  height: 45px;
+
+  background-image: url("https://yastatic.net/s3/fiji-static/_/f0vM6kFiHLugimNeqhQEGoZgpUE.svg");
+
+  opacity: 0.3;
+
+  transition: opacity 0.2s, transform 0.1s linear;
+  &:hover {
+    opacity: 1;
+  }
+
+  &:active {
+    transform: scale(1.1);
+  }
+}
+
+.button-search {
+  top: 35px;
+  right: 10px;
+
+  width: 30px;
+  height: 30px;
+
+  background-image: url("../image/icon/search.png");
+
+  transition: transform 0.2s linear;
+  &:hover {
+    transform: rotate(20deg);
+  }
+}
+
+.button-microphone {
+  top: 35px;
+  right: 108px;
+
+  width: 17px;
+  height: 31px;
+
+  background-image: url("../image/icon/microphone.png");
+  background-size: cover;
+
+  transition: transform 0.2s linear;
+}
+
+.button-disable-microphone {
+  top: 35px;
+  right: 100px;
+  z-index: 1;
+
+  width: 30px;
+  height: 30px;
+
+  background-image: url("../image/icon/mute-micro.jpg");
+  background-size: cover;
+  opacity: 0;
+}
+
+.button-disable-microphone::before {
+  content: "";
+
+  top: 9px;
+  left: -18px;
+
+  width: 12px;
+  height: 12px;
+
+  background-color: red;
+  border-radius: 50%;
+  cursor: default;
+
+  animation: recording 0.7s linear alternate infinite;
+}
+
+.button-my-movie {
+  top: 27px;
+  right: 50px;
+
+  width: 250px;
+  padding: 8px;
+
+  font-size: 1.3em;
+  color: rgb(0, 0, 0);
+
+  background-color: #ffffff9c;
+  border-radius: 20px;
+
+  transition: background 0.1s linear;
+  &:hover {
+    background-color: #ffffff;
+  }
+}
+
+.button-keyboard {
+  top: 30px;
+  right: 50px;
+
+  width: 45px;
+  height: 35px;
+
+  background-image: url("../image/icon/keyboard.png");
+
+  transition: transform 0.1s linear;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.watch-later,
+.favorite-movie {
+  top: 0;
+  z-index: 900;
+
+  width: 50%;
+  height: 3.125rem;
+
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #ffffff6c;
+  text-transform: uppercase;
+
+  background-color: rgb(0, 207, 235);
+
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s linear;
+  &:hover {
+    color: #ffffff;
+  }
+}
+
+.favorite-movie {
+  right: 0;
+}
+
+.active-tab {
+  z-index: 999;
+
+  color: #ffffff;
+
+  background-color: rgb(0, 165, 187);
+  box-shadow: 0 0 0.9375rem #9900ff;
+}
+
+.close-modal-window {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3.125rem;
+
+  font-size: 1.8rem;
+  color: #797979;
+  text-transform: uppercase;
+
+  background-color: #caa6db59;
+
+  transition: background 0.3s, color 0.3s linear;
+}
+
+.close-modal-window:hover {
+  color: #3f3f3f;
+
+  background-color: #caa6db;
+}
+
+.movie-info-button {
+  position: absolute;
+  top: 7px;
+  right: 5px;
+  z-index: 200;
+
+  width: 40px;
+  height: 40px;
+
+  background-image: url("../image/icon/info.png");
+  background-size: cover;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.7;
+
+  transition: opacity 0.2s, transform 0.2s, background 0.2s linear;
+  &:hover {
+    background-color: rgb(255, 145, 0);
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+.love-movie-button {
+  right: 10px;
+  bottom: 10px;
+
+  width: 40px;
+  height: 40px;
+
+  background-image: url("../image/icon/heart.png");
+
+  opacity: 0.3;
+
+  transition: opacity 0.2s, transform 0.15s linear;
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &:active {
+    transform: scale(1.4);
+  }
+}
+
+.will-watch {
+  top: 54px;
+  left: 0;
+
+  width: 100%;
+  height: 35px;
+
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #ffffff;
+  text-transform: uppercase;
+
+  background-color: #272727;
+  opacity: 0.3;
+
+  transition: opacity 0.2s, background 0.2s linear;
+
+  &:hover {
+    opacity: 0.9 !important;
+  }
+
+  &:active {
+    background-color: #000000;
+  }
+}
+
+.will-watch-confrim {
+  position: absolute;
+  top: 57px;
+  left: 40px;
+
+  width: 31px;
+  height: 31px;
+
+  background-image: url("../image/icon/time.png");
+  background-size: cover;
+  cursor: pointer;
+  opacity: 0.4;
+
+  pointer-events: none;
+}

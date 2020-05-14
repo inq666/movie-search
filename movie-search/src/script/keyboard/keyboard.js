@@ -107,6 +107,17 @@ class KeyBoard {
       this.wrapper.lastChild.lastChild.append(engKeyLower);
     }
   }
+  arrowMove(direction) {
+    const cursor = this.input.selectionStart;
+    if (direction === 'ArrowRight') {
+      this.input.selectionStart = cursor + 1;
+      this.input.selectionEnd = cursor + 1;
+    } else if (direction === 'ArrowLeft') {
+      if (cursor === 0) return;
+      this.input.selectionStart = cursor - 1;
+      this.input.selectionEnd = cursor - 1;
+    }
+  }
 
   checkKey(str) {
     switch (str) {
@@ -115,6 +126,12 @@ class KeyBoard {
         break;
       case 'CapsLock':
         this.changeCase();
+        break;
+      case 'ArrowRight':
+        this.arrowMove('ArrowRight');
+        break;
+      case 'ArrowLeft':
+        this.arrowMove('ArrowLeft');
         break;
       default:
     }

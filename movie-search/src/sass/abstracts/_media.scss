@@ -1,0 +1,100 @@
+@media (max-width: 1330px) {
+  :root {
+   font-size: 15px;
+ }
+
+ body {
+   font-size: 16px;
+ }
+
+   .container {
+     max-width: 895px;
+   }
+
+   .search {
+     width: 530px;
+   }
+ }
+
+ @media (max-width: 1110px) {
+   :root {
+     font-size: 13px;
+   }
+
+   .container {
+     max-width: 590px;
+   }
+
+   .search {
+     width: 585px;
+     margin-bottom: 60px;
+     padding-right: 95px;
+
+     font-size: 15px;
+   }
+
+   .search-result {
+     font-size: 1.5em;
+   }
+
+   .button-my-movie {
+     top: 80px;
+     right: 0;
+
+     width: 100%;
+   }
+
+   .button-keyboard {
+     display: none;
+   }
+
+   .button-microphone {
+     right: 48px;
+   }
+
+   .button-disable-microphone {
+     right: 42px;
+   }
+
+   .delimiter {
+     right: 73px;
+   }
+ }
+
+
+
+
+@media (max-width: 740px) {
+  :root {
+    font-size: 10px;
+  }
+
+  .container {
+    max-width: 285px;
+  }
+
+  .search {
+    width: 280px;
+    margin-bottom: 60px;
+  }
+
+  .search-result {
+    font-size: 1.5em;
+  }
+
+  .search::placeholder {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 550px) {
+  :root {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 400px) {
+  :root {
+     font-size: 4px;
+  }
+}

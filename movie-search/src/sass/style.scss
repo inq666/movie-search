@@ -1,0 +1,23 @@
+@import "abstracts/constants";
+@import "abstracts/media";
+
+// Base
+@import "base/base";
+@import "base/buttons";
+
+// Layouts
+@import "layout/main";
+@import "layout/header";
+@import "layout/footer";
+
+// Components
+@import "components/list-movie";
+@import "components/modal";
+@import "components/movie-info";
+@import "components/search";
+@import "components/slide-info";
+
+// Vendors
+@import "vendors/keyboard";
+@import "vendors/loader";
+@import "vendors/swiper";

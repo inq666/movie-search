@@ -1,4 +1,3 @@
-@import "abstracts/constants";
 @import "abstracts/media";
 
 // Base
@@ -11,6 +10,7 @@
 @import "layout/footer";
 
 // Components
+@import "components/icons";
 @import "components/list-movie";
 @import "components/modal";
 @import "components/movie-info";

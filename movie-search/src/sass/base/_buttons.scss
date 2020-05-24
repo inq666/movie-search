@@ -61,6 +61,7 @@
 }
 
 .button-disable-microphone::before {
+  position: absolute;
   content: "";
 
   top: 9px;
@@ -251,4 +252,13 @@
   opacity: 0.4;
 
   pointer-events: none;
+}
+
+.delimiter {
+  position: absolute;
+  top: 30px;
+  right: 130px;
+  display: inline-block;
+  height: 40px;
+  border: 0.5008px solid rgba(116, 116, 116, 0.411);
 }

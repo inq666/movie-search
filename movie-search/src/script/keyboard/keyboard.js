@@ -138,6 +138,8 @@ class KeyBoard {
   }
 
   mouseClick(e) {
+    const string = this.input.value;
+    const cursorNum = this.input.selectionStart;
     const target = e.target.closest('.key');
     if (!target) return;
     const targetKey = target.className.split(' ')[1];
@@ -146,7 +148,9 @@ class KeyBoard {
     setTimeout(() => target.classList.remove('active'), 500);
     const text = e.target.closest('.key').querySelector('.activeKeys').querySelector('.on').textContent;
     if (text.length > 1) return;
-    this.input.value += text;
+    this.input.value = string.slice(0, cursorNum) + text + string.slice(cursorNum, string.length);
+    this.input.selectionStart = cursorNum + 1;
+    this.input.selectionEnd = cursorNum + 1;
   }
 
   changeCase() {

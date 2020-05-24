@@ -48,7 +48,7 @@ class MainApp {
       this.recognition.start();
       document.querySelector('.button-microphone').style.opacity = '0';
       this.speakButton.style.opacity = '1';
-      this.search.input.focus();
+      this.search.focus();
     } else {
       this.microActive = false;
       this.recognition.stop();
@@ -60,7 +60,7 @@ class MainApp {
   recording(event) {
     this.nameMovie = event.results[0][0].transcript;
     if (event.results[0].isFinal) {
-      this.search.input.value = this.nameMovie.split(',');
+      this.search.value = this.nameMovie.split(',');
     }
   }
 

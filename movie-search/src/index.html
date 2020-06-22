@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Permanent+Marker&display=swap"
+    rel="stylesheet">
+  <title>Movie Search</title>
+</head>
+
+<body>
+  <div class="animation-container">
+    <div class="cssload-container">
+      <div class="cssload-circle-1">
+        <div class="cssload-circle-2">
+          <div class="cssload-circle-3">
+            <div class="cssload-circle-4">
+              <div class="cssload-circle-5">
+                <div class="cssload-circle-6">
+                  <div class="cssload-circle-7">
+                    <div class="cssload-circle-8">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="header-title">Movie Search</h1>
+      <div class="header-background"></div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="search-line">
+        <input class="search" type="text" placeholder="Search movie..." autofocus>
+        <button class="button-search"></button>
+        <button class="button-keyboard"></button>
+        <button class="button-clear"></button>
+        <button class="button-microphone"></button>
+        <button class="button-disable-microphone"></button>
+        <span class="delimiter"></span>
+      </div>
+      <button class="button-my-movie">My movie</button>
+      <p class="search-result"></p>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a class="movie-title" target="_blank"></a>
+            <a class="movie-image" target="_blank"></a>
+            <button class="will-watch">i will watch</button>
+            <div class="will-watch-confrim"></div>
+            <span class="movie-year"></span>
+            <span class="movie-rate"></span>
+            <span class="movie-info-button"></span>
+            <button class="love-movie-button"></button>
+
+            <div class="movie-info">
+              <a class="name">naruto</a>
+              <div class="type-movie">Movie</div>
+              <span class="description"></span>
+              <span class="genre"></span>
+              <span class="run-time"></span>
+              <span class="rate"></span>
+              <span class="actors"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="search-result-found"></p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a class="footer-github" href="https://rs.school/" target="_blank">
+      <span class="rss-icon"></span>
+    </a>
+    <a class="footer-github" href="https://github.com/inq666" target="_blank">
+      <span class="github-icon"></span>
+      <span class="github-text">GitHub</span>
+    </a>
+  </footer>
+
+  <!--VIRTUAL-KEYBOARD-->
+  <div class="wrapper clearFix" draggable="true"></div>
+
+  <!--MODAL-WINDOW MY-MOVIES-->
+  <div class="modal-window">
+    <div class="my-movie">
+      <button class="watch-later active-tab">I want to see</button>
+      <button class="favorite-movie">Favorite films</button>
+      <div class="list-movie">
+        <div class="list-movie-item">
+          <a class="poster-list-movie" target="_blank"></a>
+          <div class="description-list-movie">
+            <a class="title-list-movie" target="_blank"></a>
+            <span class="plot-list-movie"></span>
+          </div>
+          <button class="delete-movie"></button>
+        </div>
+      </div>
+      <button class="close-modal-window">close</button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+  <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+</body>
+
+</html>

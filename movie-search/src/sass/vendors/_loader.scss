@@ -1,0 +1,98 @@
+.animation-container {
+  position: fixed;
+  z-index: 999;
+
+  display: none;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.747);
+}
+
+.cssload-container {
+  width: 165px;
+  margin: 18% auto 0;
+}
+
+.cssload-circle-1 {
+  width: 165px;
+  height: 165px;
+
+  background: rgb(97,46,141);
+}
+
+.cssload-circle-2 {
+  width: 138px;
+  height: 138px;
+
+  background: rgb(194,34,134);
+}
+
+.cssload-circle-3 {
+  width: 110px;
+  height: 110px;
+
+  background: rgb(234,34,94);
+}
+
+.cssload-circle-4 {
+  width: 83px;
+  height: 83px;
+
+  background: rgb(237,91,53);
+}
+
+.cssload-circle-5 {
+  width: 55px;
+  height: 55px;
+
+  background: rgb(245,181,46);
+}
+
+.cssload-circle-6 {
+  width: 28px;
+  height: 28px;
+
+  background: rgb(129,197,64);
+}
+
+.cssload-circle-7 {
+  width: 14px;
+  height: 14px;
+
+  background: rgb(0,163,150);
+}
+
+.cssload-circle-8 {
+  width: 7px;
+  height: 7px;
+
+  background: rgb(22,116,188);
+}
+
+.cssload-circle-1,
+.cssload-circle-2,
+.cssload-circle-3,
+.cssload-circle-4,
+.cssload-circle-5,
+.cssload-circle-6,
+.cssload-circle-7,
+.cssload-circle-8 {
+  border-bottom: none;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+
+  animation-name: cssload-spin;
+  animation-duration: 1800ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes cssload-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

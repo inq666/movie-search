@@ -1,0 +1,45 @@
+body {
+  margin: 0 auto;
+
+  font-family: "Roboto", sans-serif;
+
+  background-image: url("../image/body.jpg");
+  background-size: cover;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+button {
+  position: absolute;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
+}
+
+@keyframes recording {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

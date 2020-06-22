@@ -1,0 +1,29 @@
+.search-line {
+  position: relative;
+
+  display: inline-block;
+  padding-top: 30px;
+}
+
+.search {
+  width: 800px;
+  height: 40px;
+  margin-bottom: 30px;
+  padding: 15px 100px 15px 40px;
+
+  font-size: 1.3em;
+
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 15px;
+  outline: none;
+
+  transition: box-shadow 0.2s linear;
+  &:hover {
+    box-shadow: 0 0 5px 1px #5900ff;
+  }
+
+  &:focus {
+    box-shadow: 0 0 8px 3px #5900ff;
+  }
+}

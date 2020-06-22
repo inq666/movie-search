@@ -1,0 +1,68 @@
+.list-movie-item {
+  position: relative;
+
+  display: flex;
+  margin-bottom: 1.25rem;
+  margin-left: 0.625rem;
+  padding-bottom: 0.625rem;
+
+  border-bottom: 0.0625rem dotted rgba(0, 0, 0, 0.205);
+}
+
+.poster-list-movie {
+  min-width: 4.375rem;
+  height: 6.875rem;
+
+  background-image: url("https://m.media-amazon.com/images/M/MV5BMTE5NzIwMGUtYTE1MS00MDUxLTgyZjctOWVkZDAxM2M4ZWQ4XkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_SX300.jpg");
+  background-size: cover;
+  cursor: pointer;
+}
+
+.description-list-movie {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.9375rem;
+
+  text-align: justify;
+}
+
+.plot-list-movie {
+  font-size: 1rem;
+}
+
+.title-list-movie {
+  margin-bottom: 0.3125rem;
+ font-size: 1.2rem;
+  font-weight: bold;
+  color: #e48e8e;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: color 0.2s linear;
+}
+
+.title-list-movie:hover {
+  color: #940000;
+}
+
+
+
+.delete-movie {
+  position: absolute;
+  top: -0.1875rem;
+  right: -3.125rem;
+
+  width: 1.5625rem;
+  height: 1.5625rem;
+
+  background-image: url("../image/icon/delete.png");
+  background-position: center;
+  background-size: cover;
+
+  transition: transform 0.2s linear;
+}
+
+.delete-movie:hover {
+  transform: scale(1.15);
+}
